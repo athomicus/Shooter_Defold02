@@ -1,0 +1,8 @@
+animations {
+  id: "Player"
+  images {
+    image: "/assets/images/player_ship.png"
+  }
+  playback: PLAYBACK_NONE
+}
+extrude_borders: 2
