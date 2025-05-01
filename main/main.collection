@@ -1,7 +1,55 @@
 name: "main"
+instances {
+  id: "enemy"
+  prototype: "/main/enemy.go"
+  position {
+    x: 37.0
+    y: 323.0
+  }
+}
+instances {
+  id: "enemy1"
+  prototype: "/main/enemy.go"
+  position {
+    x: 105.0
+    y: 323.0
+  }
+}
+instances {
+  id: "enemy2"
+  prototype: "/main/enemy.go"
+  position {
+    x: 222.0
+    y: 323.0
+  }
+}
+instances {
+  id: "enemy3"
+  prototype: "/main/enemy.go"
+  position {
+    x: 372.0
+    y: 323.0
+  }
+}
+instances {
+  id: "enemy4"
+  prototype: "/main/enemy.go"
+  position {
+    x: 568.0
+    y: 323.0
+  }
+}
+instances {
+  id: "enemy5"
+  prototype: "/main/enemy.go"
+  position {
+    x: 470.0
+    y: 396.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
-  id: "go"
+  id: "Player"
   data: "components {\n"
   "  id: \"player\"\n"
   "  component: \"/main/player.script\"\n"
@@ -15,6 +63,12 @@ embedded_instances {
   "  sampler: \\\"texture_sampler\\\"\\n"
   "  texture: \\\"/assets/sprites.atlas\\\"\\n"
   "}\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"factory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/main/bullet.go\\\"\\n"
   "\"\n"
   "}\n"
   ""

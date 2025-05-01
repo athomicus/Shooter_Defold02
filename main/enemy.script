@@ -1,0 +1,9 @@
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Learn more: https://defold.com/manuals/message-passing/
+	-- Remove this function if not needed
+	if message_id == hash("trigger_response") and message.enter then --message.enter  enter is true and message.enter
+		go.delete() -- destroy ship	
+		
+	end
+end

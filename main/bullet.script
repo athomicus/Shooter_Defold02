@@ -1,0 +1,20 @@
+function init(self)
+	-- Add initialization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+
+	go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, 800, go.EASING_LINEAR, 1)
+end
+
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Learn more: https://defold.com/manuals/message-passing/
+	-- Remove this function if not needed
+	if message_id == hash("trigger_response") and message.enter then --message.enter  enter is true and message.enter
+		go.delete() -- destroy bullet	
+
+	end
+end
+
+

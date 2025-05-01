@@ -5,4 +5,18 @@ animations {
   }
   playback: PLAYBACK_NONE
 }
+animations {
+  id: "Enemy"
+  images {
+    image: "/assets/images/enemy_bomber_1.png"
+  }
+  playback: PLAYBACK_NONE
+}
+animations {
+  id: "bullet"
+  images {
+    image: "/assets/images/rocket.png"
+  }
+  playback: PLAYBACK_NONE
+}
 extrude_borders: 2
