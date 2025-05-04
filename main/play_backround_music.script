@@ -1,0 +1,9 @@
+function init(self)
+	-- Add initialization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+	sound.play("#bck_sound")
+	
+end
+
+

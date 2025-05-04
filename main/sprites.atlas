@@ -1,0 +1,56 @@
+animations {
+  id: "Player"
+  images {
+    image: "/assets/images/player_ship.png"
+  }
+  playback: PLAYBACK_NONE
+}
+animations {
+  id: "Enemy"
+  images {
+    image: "/assets/images/enemy_bomber_1.png"
+  }
+  playback: PLAYBACK_NONE
+}
+animations {
+  id: "bullet"
+  images {
+    image: "/assets/images/rocket.png"
+  }
+  playback: PLAYBACK_NONE
+}
+animations {
+  id: "explosion"
+  images {
+    image: "/assets/images/explosion/48x48 - MidairExplosionFrame1.png"
+  }
+  images {
+    image: "/assets/images/explosion/48x48 - MidairExplosionFrame2.png"
+  }
+  images {
+    image: "/assets/images/explosion/48x48 - MidairExplosionFrame3.png"
+  }
+  images {
+    image: "/assets/images/explosion/48x48 - MidairExplosionFrame4.png"
+  }
+  images {
+    image: "/assets/images/explosion/48x48 - MidairExplosionFrame5.png"
+  }
+  images {
+    image: "/assets/images/explosion/48x48 - MidairExplosionFrame6.png"
+  }
+  images {
+    image: "/assets/images/explosion/48x48 - MidairExplosionFrame7.png"
+  }
+  images {
+    image: "/assets/images/explosion/48x48 - MidairExplosionFrame8.png"
+  }
+  images {
+    image: "/assets/images/explosion/48x48 - MidairExplosionFrame9.png"
+  }
+  images {
+    image: "/assets/images/explosion/48x48 - MidairExplosionFrame10.png"
+  }
+  fps: 20
+}
+extrude_borders: 2

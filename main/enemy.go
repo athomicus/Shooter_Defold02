@@ -2,6 +2,10 @@ components {
   id: "enemy"
   component: "/main/enemy.script"
 }
+components {
+  id: "explosion"
+  component: "/main/explosion.sound"
+}
 embedded_components {
   id: "sprite"
   type: "sprite"
@@ -9,7 +13,7 @@ embedded_components {
   "material: \"/builtins/materials/sprite.material\"\n"
   "textures {\n"
   "  sampler: \"texture_sampler\"\n"
-  "  texture: \"/assets/sprites.atlas\"\n"
+  "  texture: \"/main/sprites.atlas\"\n"
   "}\n"
   ""
 }

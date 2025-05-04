@@ -5,6 +5,7 @@ function init(self)
 
 	timer.delay(1, true, function()
 		factory.create("#factory")  
+		sound.play("#shot")
 	end)
 end
 	
