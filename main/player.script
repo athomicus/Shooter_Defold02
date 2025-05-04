@@ -1,6 +1,6 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	--factory.create("#factory")  
+	--factory.create("#factory")  #
 
 
 	timer.delay(1, true, function()
