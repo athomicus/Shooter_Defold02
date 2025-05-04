@@ -1,0 +1,4 @@
+font: "/assets/fonts/Commodore Rounded v1.2.ttf"
+material: "/builtins/fonts/font.material"
+size: 33
+characters: " !\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"

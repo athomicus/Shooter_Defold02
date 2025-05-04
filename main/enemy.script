@@ -6,6 +6,7 @@ function on_message(self, message_id, message, sender)
 		--go.delete() -- destroy ship	
 		--sprite.play_flipbook("#sprite", "explosion") musimy uzyc funkcji wlas. sprite do wywolania callback function
 		sound.play("#explosion")
+		msg.post("Hud#myGUI","hello")
 			sprite.play_flipbook("#sprite", "explosion", function()
 			go.delete() 
 		end) 

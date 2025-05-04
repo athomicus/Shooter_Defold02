@@ -93,3 +93,11 @@ embedded_instances {
   "}\n"
   ""
 }
+embedded_instances {
+  id: "Hud"
+  data: "components {\n"
+  "  id: \"myGUI\"\n"
+  "  component: \"/main/myGUI.gui\"\n"
+  "}\n"
+  ""
+}

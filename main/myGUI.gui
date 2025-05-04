@@ -1,0 +1,23 @@
+script: "/main/score.gui_script"
+fonts {
+  name: "c64"
+  font: "/assets/fonts/abite.font"
+}
+nodes {
+  position {
+    x: 860.0
+    y: 589.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "0"
+  font: "c64"
+  id: "score"
+  xanchor: XANCHOR_RIGHT
+  inherit_alpha: true
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
