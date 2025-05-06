@@ -1,3 +1,17 @@
+
+function init(self)
+	--self.time = 0
+	--self.pos = go.get_position()
+	--go.animate(".", "position.y", go.PLAYBACK_LOOP_PINGPONG, 80, go.EASING_OUTINSINE, 10)
+	--go.animate(".", "position.x", go.PLAYBACK_LOOP_PINGPONG, 80, go.EASING_INOUTCIRC, 10)
+	
+	local pos = go.get_position()	 
+	pos.x = pos.x + 80				 
+	pos.y = pos.y + 50			 
+	
+	go.animate(".", "position.x", go.PLAYBACK_LOOP_PINGPONG, pos.x, go.EASING_INOUTSINE, 3) 
+	go.animate(".", "position.y", go.PLAYBACK_LOOP_PINGPONG, pos.y, go.EASING_INOUTSINE, 3, 3) 
+end
 function on_message(self, message_id, message, sender)
 	-- Add message-handling code here
 	-- Learn more: https://defold.com/manuals/message-passing/
@@ -12,4 +26,23 @@ function on_message(self, message_id, message, sender)
 		end) 
 		
 	end
+end
+
+local function sign(n)
+	if n>0 then	return 1
+	elseif n<0 then return -1
+	end
+	return 0
+end
+
+function update(self, dt)
+
+	--local new_pos
+	self.time = self.time + dt
+	self.new_pos = self.pos
+	--local sine = math.sin(2*self.time)
+	--self.new_pos.x = 500+sign(sine) *300*math.abs(sine)^0.2
+	--self.new_pos.y =  500-self.time * 10
+	--go.set_position(self.new_pos)
+	--print(self.new_pos)
 end
