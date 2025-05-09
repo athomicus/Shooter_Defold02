@@ -5,12 +5,12 @@ function init(self)
 	--go.animate(".", "position.y", go.PLAYBACK_LOOP_PINGPONG, 80, go.EASING_OUTINSINE, 10)
 	--go.animate(".", "position.x", go.PLAYBACK_LOOP_PINGPONG, 80, go.EASING_INOUTCIRC, 10)
 	
-	local pos = go.get_position()	 
-	pos.x = pos.x + 80				 
-	pos.y = pos.y + 50			 
+	local npos = go.get_position()	 
+	npos.x = npos.x + 50				 
+	npos.y = npos.y + 20			 
 	
-	go.animate(".", "position.x", go.PLAYBACK_LOOP_PINGPONG, pos.x, go.EASING_INOUTSINE, 3) 
-	go.animate(".", "position.y", go.PLAYBACK_LOOP_PINGPONG, pos.y, go.EASING_INOUTSINE, 3, 3) 
+	go.animate(".", "position.x", go.PLAYBACK_LOOP_PINGPONG, npos.x, go.EASING_INOUTSINE, 3) 
+	go.animate(".", "position.y", go.PLAYBACK_LOOP_PINGPONG, npos.y, go.EASING_INOUTSINE, 3, 1) 
 end
 function on_message(self, message_id, message, sender)
 	-- Add message-handling code here
