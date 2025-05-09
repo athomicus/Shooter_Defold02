@@ -1,0 +1,13 @@
+images {
+  image: "/assets/images/Enjl-Starry Space Background/background_1.png"
+}
+images {
+  image: "/assets/images/Enjl-Starry Space Background/background_2.png"
+}
+images {
+  image: "/assets/images/Enjl-Starry Space Background/background_3.png"
+}
+images {
+  image: "/assets/images/Enjl-Starry Space Background/background_4.png"
+}
+extrude_borders: 2

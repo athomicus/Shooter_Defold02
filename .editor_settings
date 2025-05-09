@@ -2,10 +2,6 @@
   :workflow {
     :recent-files [
       [
-        "/game.project"
-        :cljfx-form-view
-      ]
-      [
         "/assets/sprites.atlas"
         :scene
       ]
@@ -42,10 +38,6 @@
         :code
       ]
       [
-        "/main/myGUI.gui"
-        :scene
-      ]
-      [
         "/main/score_gui_script.gui_script"
         :code
       ]
@@ -54,12 +46,32 @@
         :code
       ]
       [
+        "/main/enemy.script"
+        :code
+      ]
+      [
+        "/main/score.gui_script"
+        :code
+      ]
+      [
+        "/main/myGUI.gui"
+        :scene
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
         "/main/bullet.go"
         :scene
       ]
       [
-        "/main/enemy.script"
-        :code
+        "/main/sprites.atlas"
+        :scene
+      ]
+      [
+        "/main/background.atlas"
+        :scene
       ]
       [
         "/main/main.collection"
