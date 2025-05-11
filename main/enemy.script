@@ -1,7 +1,7 @@
 
 function init(self)
-	--self.time = 0
-	--self.pos = go.get_position()
+	self.time = 0
+	self.pos = go.get_position()
 	--go.animate(".", "position.y", go.PLAYBACK_LOOP_PINGPONG, 80, go.EASING_OUTINSINE, 10)
 	--go.animate(".", "position.x", go.PLAYBACK_LOOP_PINGPONG, 80, go.EASING_INOUTCIRC, 10)
 	

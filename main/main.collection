@@ -47,6 +47,117 @@ instances {
     y: 396.0
   }
 }
+instances {
+  id: "stars1_line"
+  prototype: "/main/stars1_line.go"
+  position {
+    y: 120.0
+  }
+}
+instances {
+  id: "stars1_line1"
+  prototype: "/main/stars1_line.go"
+  position {
+    y: 221.0
+  }
+}
+instances {
+  id: "stars1_line2"
+  prototype: "/main/stars1_line.go"
+  position {
+    y: 441.0
+  }
+}
+instances {
+  id: "stars3line"
+  prototype: "/main/stars3_line.go"
+}
+instances {
+  id: "stars3line1"
+  prototype: "/main/stars3_line.go"
+  position {
+    y: 225.0
+  }
+}
+instances {
+  id: "stars3line2"
+  prototype: "/main/stars3_line.go"
+  position {
+    y: 452.0
+  }
+}
+instances {
+  id: "stars1_line3"
+  prototype: "/main/stars1_line.go"
+}
+instances {
+  id: "stars1_line4"
+  prototype: "/main/stars1_line.go"
+  position {
+    y: 221.0
+  }
+}
+instances {
+  id: "stars1_line5"
+  prototype: "/main/stars1_line.go"
+  position {
+    y: 441.0
+  }
+}
+instances {
+  id: "stars1_line6"
+  prototype: "/main/stars1_line.go"
+}
+instances {
+  id: "stars1_line7"
+  prototype: "/main/stars1_line.go"
+  position {
+    y: 221.0
+  }
+}
+instances {
+  id: "stars1_line8"
+  prototype: "/main/stars1_line.go"
+  position {
+    y: 441.0
+  }
+}
+instances {
+  id: "stars3line3"
+  prototype: "/main/stars3_line.go"
+}
+instances {
+  id: "stars3line4"
+  prototype: "/main/stars3_line.go"
+  position {
+    y: 225.0
+  }
+}
+instances {
+  id: "stars3line5"
+  prototype: "/main/stars3_line.go"
+  position {
+    y: 452.0
+  }
+}
+instances {
+  id: "stars3line6"
+  prototype: "/main/stars3_line.go"
+}
+instances {
+  id: "stars3line7"
+  prototype: "/main/stars3_line.go"
+  position {
+    y: 225.0
+  }
+}
+instances {
+  id: "stars3line8"
+  prototype: "/main/stars3_line.go"
+  position {
+    y: 452.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "Player"
@@ -102,66 +213,80 @@ embedded_instances {
   ""
 }
 embedded_instances {
-  id: "bg_sprites"
-  data: "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"background_1\\\"\\n"
-  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
-  "textures {\\n"
-  "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/main/background.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite2\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"background_2\\\"\\n"
-  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 256.0\\n"
-  "  y: 224.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/main/background.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite3\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"background_3\\\"\\n"
-  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 256.0\\n"
-  "  y: 224.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/main/background.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite4\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"background_4\\\"\\n"
-  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 256.0\\n"
-  "  y: 224.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/main/background.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
+  id: "backgrounds"
+  children: "StarsA0"
+  children: "StarsA1"
+  children: "StarsA2"
+  children: "StarsB0"
+  children: "StarsB1"
+  children: "StarsB2"
+  data: "components {\n"
+  "  id: \"move_background\"\n"
+  "  component: \"/main/move_background.script\"\n"
   "}\n"
   ""
+}
+embedded_instances {
+  id: "StarsA0"
+  children: "stars1_line"
+  children: "stars1_line1"
+  children: "stars1_line2"
+  data: ""
   position {
-    x: 132.0
-    y: 125.0
+    x: 127.0
+  }
+}
+embedded_instances {
+  id: "StarsB0"
+  children: "stars3line"
+  children: "stars3line1"
+  children: "stars3line2"
+  data: ""
+  position {
+    x: 127.0
+  }
+}
+embedded_instances {
+  id: "StarsA1"
+  children: "stars1_line3"
+  children: "stars1_line4"
+  children: "stars1_line5"
+  data: ""
+  position {
+    x: 127.0
+    y: 664.0
+  }
+}
+embedded_instances {
+  id: "StarsA2"
+  children: "stars1_line6"
+  children: "stars1_line7"
+  children: "stars1_line8"
+  data: ""
+  position {
+    x: 127.0
+    y: 1328.0
+  }
+}
+embedded_instances {
+  id: "StarsB1"
+  children: "stars3line3"
+  children: "stars3line4"
+  children: "stars3line5"
+  data: ""
+  position {
+    x: 127.0
+    y: 625.0
+  }
+}
+embedded_instances {
+  id: "StarsB2"
+  children: "stars3line6"
+  children: "stars3line7"
+  children: "stars3line8"
+  data: ""
+  position {
+    x: 127.0
+    y: 1307.0
   }
 }

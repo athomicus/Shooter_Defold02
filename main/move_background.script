@@ -1,0 +1,37 @@
+function init(self)
+  -- Get the size of the sprite and calculate the offset for repositioning
+  self.sprite_size = go.get("stars1_line#sprite", "size") -- Use relative path if in the same collection
+  self.offset = self.sprite_size * 3 -- Offset is three times the sprite size
+  self.starsA_speed = 125 -- Speed for group A stars
+  self.starsB_speed = 25  -- Speed for group B stars
+end
+
+-- List of game object names for stars
+local go_names = {"StarsA0", "StarsA1", "StarsA2", "StarsB0", "StarsB1", "StarsB2"}
+
+function update(self, dt)
+  -- Iterate through all star objects
+  for i, item in pairs(go_names) do
+    local pos = go.get_position(item) -- Get the current position of the star
+
+    -- If the star moves below the screen, reposition it above
+    if pos.y < -self.offset.y then 
+      pos.y = pos.y + 2 * self.offset.y -- Move it up by twice the offset
+    end
+
+    -- Adjust the position based on the speed of the star group
+    if i <= 3 then -- First three stars belong to group A
+      pos.y = pos.y - self.starsA_speed * dt 
+    else -- Remaining stars belong to group B
+      pos.y = pos.y - self.starsB_speed * dt 
+    end
+
+    go.set_position(pos, item) -- Update the position of the star
+  end
+end
+
+
+
+
+
+

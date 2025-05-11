@@ -14,10 +14,6 @@
         :scene
       ]
       [
-        "/main/play_backround_music.script"
-        :code
-      ]
-      [
         "/main/shot.sound"
         :cljfx-form-view
       ]
@@ -46,23 +42,47 @@
         :code
       ]
       [
-        "/main/enemy.script"
-        :code
+        "/game.project"
+        :cljfx-form-view
       ]
       [
         "/main/score.gui_script"
         :code
       ]
       [
+        "/main/play_backround_music.script"
+        :code
+      ]
+      [
+        "/main/background.atlas"
+        :scene
+      ]
+      [
         "/main/myGUI.gui"
         :scene
       ]
       [
-        "/game.project"
-        :cljfx-form-view
+        "/main/stars3.go"
+        :scene
+      ]
+      [
+        "/main/starsA.go"
+        :scene
       ]
       [
         "/main/bullet.go"
+        :scene
+      ]
+      [
+        "/main/enemy.script"
+        :code
+      ]
+      [
+        "/main/main.collection"
+        :scene
+      ]
+      [
+        "/main/stars1_line.go"
         :scene
       ]
       [
@@ -70,12 +90,16 @@
         :scene
       ]
       [
-        "/main/background.atlas"
+        "/main/stars2_line.go"
         :scene
       ]
       [
-        "/main/main.collection"
+        "/main/stars3line.go"
         :scene
+      ]
+      [
+        "/main/move_background.script"
+        :code
       ]
     ]
   }
