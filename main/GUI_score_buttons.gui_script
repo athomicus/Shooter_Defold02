@@ -1,0 +1,38 @@
+
+
+-- Initialize the score variable to keep track of the player's score
+local score = 0
+
+function init(self)
+	msg.post(".", "acquire_input_focus") -- 
+end
+
+-- Function to handle incoming messages
+function on_message(self, message_id, message, sender)
+	-- Increment the score by 500 when a message is received
+	score = score + 500
+	
+	-- Update the GUI text node named "score" to display the updated score
+	gui.set_text(gui.get_node("score"), score)
+end
+
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and not action.pressed then  
+		local button_left = gui.get_node("button_L") 
+    local button_right = gui.get_node("button_R")
+      
+		if gui.pick_node(button_left, action.x, action.y) then  
+			--pprint("LEFT")
+      msg.post("Player#player", "move_player", { offset = -10 })
+    
+    elseif gui.pick_node(button_right, action.x, action.y) then  
+			--pprint("RIGHT")
+       msg.post("Player#player", "move_player", { offset = 10 })
+        
+        
+    end
+  
+	end
+	 
+end

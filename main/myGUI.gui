@@ -1,12 +1,16 @@
-script: "/main/score.gui_script"
+script: "/main/GUI_score_buttons.gui_script"
 fonts {
   name: "c64"
   font: "/assets/fonts/abite.font"
 }
+textures {
+  name: "buttons"
+  texture: "/assets/images/input/buttons.atlas"
+}
 nodes {
   position {
-    x: 860.0
-    y: 589.0
+    x: 243.0
+    y: 1190.0
   }
   size {
     x: 200.0
@@ -18,6 +22,40 @@ nodes {
   id: "score"
   xanchor: XANCHOR_RIGHT
   inherit_alpha: true
+}
+nodes {
+  position {
+    x: 33.0
+    y: 30.0
+  }
+  color {
+    x: 0.702
+    y: 0.702
+    z: 0.702
+  }
+  type: TYPE_BOX
+  texture: "buttons/steamdeck_stick_top_l"
+  id: "button_L"
+  inherit_alpha: true
+  alpha: 0.67
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 326.0
+    y: 30.0
+  }
+  color {
+    x: 0.8
+    y: 0.8
+    z: 0.8
+  }
+  type: TYPE_BOX
+  texture: "buttons/steamdeck_stick_top_r"
+  id: "button_R"
+  inherit_alpha: true
+  alpha: 0.67
+  size_mode: SIZE_MODE_AUTO
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT

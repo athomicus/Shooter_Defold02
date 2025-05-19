@@ -1,0 +1,7 @@
+images {
+  image: "/assets/images/input/steamdeck_stick_top_l.png"
+}
+images {
+  image: "/assets/images/input/steamdeck_stick_top_r.png"
+}
+extrude_borders: 2

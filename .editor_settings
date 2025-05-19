@@ -1,4 +1,31 @@
 {
+  :bundle {
+    :android {
+      :architecture {
+        :arm64-android true
+        :armv7-android true
+      }
+      :format "apk"
+      :install false
+      :key-pass ""
+      :keystore "/home/ar2r/keystore/mykeystore.keystore"
+      :keystore-pass "/home/ar2r/keystore/mykeystore.keystore.pass.txt"
+      :launch false
+    }
+    :build-report false
+    :contentless false
+    :debug-symbols false
+    :html5 {
+      :architecture {
+        :js-web false
+        :wasm-web true
+      }
+    }
+    :liveupdate false
+    :output-directory "/home/ar2r/Desktop/defold_export"
+    :texture-compression "enabled"
+    :variant "release"
+  }
   :workflow {
     :recent-files [
       [
@@ -26,10 +53,6 @@
         :cljfx-form-view
       ]
       [
-        "/main/enemy.go"
-        :scene
-      ]
-      [
         "/main/player.script"
         :code
       ]
@@ -42,10 +65,6 @@
         :code
       ]
       [
-        "/game.project"
-        :cljfx-form-view
-      ]
-      [
         "/main/score.gui_script"
         :code
       ]
@@ -55,10 +74,6 @@
       ]
       [
         "/main/background.atlas"
-        :scene
-      ]
-      [
-        "/main/myGUI.gui"
         :scene
       ]
       [
@@ -74,23 +89,7 @@
         :scene
       ]
       [
-        "/main/enemy.script"
-        :code
-      ]
-      [
-        "/main/main.collection"
-        :scene
-      ]
-      [
-        "/main/stars1_line.go"
-        :scene
-      ]
-      [
         "/main/sprites.atlas"
-        :scene
-      ]
-      [
-        "/main/stars2_line.go"
         :scene
       ]
       [
@@ -100,6 +99,46 @@
       [
         "/main/move_background.script"
         :code
+      ]
+      [
+        "/main/enemy.script"
+        :code
+      ]
+      [
+        "/main/enemy.go"
+        :scene
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
+        "/main/stars3_line.go"
+        :scene
+      ]
+      [
+        "/main/stars2_line.go"
+        :scene
+      ]
+      [
+        "/main/stars1_line.go"
+        :scene
+      ]
+      [
+        "/assets/images/input/buttons.atlas"
+        :scene
+      ]
+      [
+        "/main/score_buttons.gui_script"
+        :code
+      ]
+      [
+        "/main/myGUI.gui"
+        :scene
+      ]
+      [
+        "/main/main.collection"
+        :scene
       ]
     ]
   }

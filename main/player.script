@@ -2,26 +2,37 @@ function init(self)
 	msg.post(".", "acquire_input_focus")
 	--factory.create("#factory")  #
 
-
 	timer.delay(1, true, function()
 		factory.create("#factory")  
 		sound.play("#shot")
 	end)
 end
-	
-
 
 function on_input(self, action_id, action)
 	if action_id == hash("left") then
-		local pos = go.get_position()
-		pos.x = pos.x - 10
-		go.set_position(pos)
-
+		move_player(-10)
 	elseif action_id == hash("right") then 
-		local pos = go.get_position()
-		pos.x = pos.x + 10
-		go.set_position(pos)
+		move_player(10)
 	end		
-
 end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("move_player") then
+        -- Call the move_player function with the offset from the message
+         
+        move_player(message.offset)
+    end
+end
+
+function move_player(offset)
+	local pos = go.get_position()
+	if pos.x + offset < 0 or pos.x + offset > 360 then 
+		return -- exit the function
+	end 
+	pos.x = pos.x + offset
+	go.set_position(pos)
+  
+end
+
+
 
