@@ -1,30 +1,28 @@
+max_spawn_number = 5
 
-max_spawn_number = 60
 function init(self)
     self.spawned_enemy_number = 1
     -- Initialize the enemy factory or other necessary components
     self.enemy_factory = "#enemy_factory" -- Example factory reference
-    -- Pass a function reference to timer.delay
-    timer.delay(1, true, function() spawn_enemy(self) end)
+    -- Store the timer handle
+    self.spawn_timer = timer.delay(0.1, true, function() spawn_enemy(self) end)
 end
 
 function spawn_enemy(self)
-    -- Create a randomized position using vmath.vector3
-    local pos = vmath.vector3(math.random(60, 300), math.random(350, 550), 0)
-    -- Create an enemy instance at the randomized position
-    local e = factory.create(self.enemy_factory, pos)
-    if e then
-       self.spaned_enemy_number = self.spawned_enemy_number + 1
-        -- Check if the maximum number of enemies has been reached
-        if self.spawned_enemy_number >= max_spawn_number then
-            -- Stop spawning enemies
-            timer.cancel(self)
-            print("Max enemy limit reached, stopping spawn.")
-        end
-     
-        print("Enemy spawned:", e)
+    -- Correctly concatenate the string and number
+    --pprint("enemy_number: " .. self.spawned_enemy_number)    
+    if self.spawned_enemy_number >= max_spawn_number then
+        -- Stop spawning enemies
+        timer.cancel(self.spawn_timer) -- Use the stored timer handle
+        --print("Max enemy limit reached, stopping spawn.")
+        return
     else
-        print("Failed to spawn enemy")
+        -- Increment the spawned enemy count
+        self.spawned_enemy_number = self.spawned_enemy_number + 1
+        -- Create a randomized position using vmath.vector3
+        local pos = vmath.vector3(math.random(60, 300), math.random(350, 550), 0)
+        -- Create an enemy instance at the randomized position
+        local e = factory.create(self.enemy_factory, pos)
     end
 end
 

@@ -61,10 +61,6 @@
         :code
       ]
       [
-        "/main/bullet.script"
-        :code
-      ]
-      [
         "/main/score.gui_script"
         :code
       ]
@@ -82,10 +78,6 @@
       ]
       [
         "/main/starsA.go"
-        :scene
-      ]
-      [
-        "/main/bullet.go"
         :scene
       ]
       [
@@ -125,11 +117,11 @@
         :scene
       ]
       [
-        "/main/spawn_enemy.script"
+        "/main/rocket_catcher.script"
         :code
       ]
       [
-        "/main/enemy.script"
+        "/main/bullet.script"
         :code
       ]
       [
@@ -137,12 +129,24 @@
         :scene
       ]
       [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
+        "/main/bullet.go"
+        :scene
+      ]
+      [
         "/main/main.collection"
         :scene
       ]
       [
-        "/game.project"
-        :cljfx-form-view
+        "/main/enemy.script"
+        :code
+      ]
+      [
+        "/main/spawn_enemy.script"
+        :code
       ]
     ]
   }

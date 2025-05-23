@@ -9,7 +9,10 @@ function on_message(self, message_id, message, sender)
 	-- If the message is a "trigger_response" and the bullet enters a trigger zone,
 	-- the bullet is deleted to simulate a collision or end of its lifespan.
 	if message_id == hash("trigger_response") and message.enter then
-		go.delete() -- Destroy the bullet game object.
+		 --rocket_catcher
+      --pprint("rocket collide with".. message.other_id)
+    
+    go.delete() -- Destroy the bullet game object.
 	end
 end
 
