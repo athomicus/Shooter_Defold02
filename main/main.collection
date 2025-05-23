@@ -1,53 +1,5 @@
 name: "main"
 instances {
-  id: "enemy"
-  prototype: "/main/enemy.go"
-  position {
-    x: 55.0
-    y: 609.0
-  }
-}
-instances {
-  id: "enemy1"
-  prototype: "/main/enemy.go"
-  position {
-    x: 63.0
-    y: 323.0
-  }
-}
-instances {
-  id: "enemy2"
-  prototype: "/main/enemy.go"
-  position {
-    x: 155.0
-    y: 323.0
-  }
-}
-instances {
-  id: "enemy3"
-  prototype: "/main/enemy.go"
-  position {
-    x: 296.0
-    y: 323.0
-  }
-}
-instances {
-  id: "enemy4"
-  prototype: "/main/enemy.go"
-  position {
-    x: 255.0
-    y: 508.0
-  }
-}
-instances {
-  id: "enemy5"
-  prototype: "/main/enemy.go"
-  position {
-    x: 148.0
-    y: 466.0
-  }
-}
-instances {
   id: "stars1_line"
   prototype: "/main/stars1_line.go"
   position {
@@ -156,6 +108,14 @@ instances {
   prototype: "/main/stars3_line.go"
   position {
     y: 452.0
+  }
+}
+instances {
+  id: "enemy"
+  prototype: "/main/enemy.go"
+  position {
+    x: 60.0
+    y: 576.0
   }
 }
 scale_along_z: 0
@@ -288,5 +248,23 @@ embedded_instances {
   position {
     x: 127.0
     y: 1307.0
+  }
+}
+embedded_instances {
+  id: "EnemySpawn"
+  children: "enemy"
+  data: "components {\n"
+  "  id: \"spawn_enemy\"\n"
+  "  component: \"/main/spawn_enemy.script\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"enemy_factory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/main/enemy.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    y: 400.0
   }
 }

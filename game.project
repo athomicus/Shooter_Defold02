@@ -18,3 +18,6 @@ scale_mode = stretch
 [project]
 title = SpaceShooter
 
+[sound]
+max_component_count = 64
+

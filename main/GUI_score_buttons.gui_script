@@ -10,7 +10,7 @@ end
 -- Function to handle incoming messages
 function on_message(self, message_id, message, sender)
 	-- Increment the score by 500 when a message is received
-	score = score + 500
+	score = score + 5
 	
 	-- Update the GUI text node named "score" to display the updated score
 	gui.set_text(gui.get_node("score"), score)

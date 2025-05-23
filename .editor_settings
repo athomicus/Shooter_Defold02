@@ -6,11 +6,11 @@
         :armv7-android true
       }
       :format "apk"
-      :install false
+      :install true
       :key-pass ""
       :keystore "/home/ar2r/keystore/mykeystore.keystore"
       :keystore-pass "/home/ar2r/keystore/mykeystore.keystore.pass.txt"
-      :launch false
+      :launch true
     }
     :build-report false
     :contentless false
@@ -101,18 +101,6 @@
         :code
       ]
       [
-        "/main/enemy.script"
-        :code
-      ]
-      [
-        "/main/enemy.go"
-        :scene
-      ]
-      [
-        "/game.project"
-        :cljfx-form-view
-      ]
-      [
         "/main/stars3_line.go"
         :scene
       ]
@@ -137,8 +125,24 @@
         :scene
       ]
       [
+        "/main/spawn_enemy.script"
+        :code
+      ]
+      [
+        "/main/enemy.script"
+        :code
+      ]
+      [
+        "/main/enemy.go"
+        :scene
+      ]
+      [
         "/main/main.collection"
         :scene
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
       ]
     ]
   }
