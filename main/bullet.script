@@ -1,7 +1,12 @@
+local s = require "main.singleton"    
+ 
+
 function init(self)
 	-- This function is called when the script is initialized.
 	-- It animates the bullet's position along the Y-axis to move it upward.
 	go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, 800, go.EASING_LINEAR, 1)
+	--pprint("metoda z singletona:"..s.get_life()) -- Access the 'get_life' function from the singleton module
+ -- pprint(" dostep do modulu:".. s.life) -- Access the 'life' property from the singleton module
 end
 
 function on_message(self, message_id, message, sender)

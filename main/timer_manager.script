@@ -1,0 +1,41 @@
+function init(self)
+    self.timer_handle = nil -- Store the timer handle
+    self.timer_duration = 5 -- Total duration of the timer
+    self.elapsed_time = 0 -- Time elapsed before pausing
+    self.is_paused = false -- Timer state
+
+    -- Start the timer
+    self.timer_handle = timer.delay(self.timer_duration, false, function()
+        print("Timer completed!")
+    end)
+end
+
+function pause_timer(self)
+    if self.timer_handle then
+        -- Cancel the current timer and calculate elapsed time
+        timer.cancel(self.timer_handle)
+        self.elapsed_time = socket.gettime() - (self.start_time or 0)
+        self.is_paused = true
+        print("Timer paused at:", self.elapsed_time)
+    end
+end
+
+function resume_timer(self)
+    if self.is_paused then
+        -- Calculate remaining time and start a new timer
+        local remaining_time = self.timer_duration - self.elapsed_time
+        self.timer_handle = timer.delay(remaining_time, false, function()
+            print("Timer resumed and completed!")
+        end)
+        self.is_paused = false
+        print("Timer resumed with remaining time:", remaining_time)
+    end
+end
+
+function on_input(self, action_id, action)
+    if action_id == hash("pause") and action.pressed then
+        pause_timer(self)
+    elseif action_id == hash("resume") and action.pressed then
+        resume_timer(self)
+    end
+end

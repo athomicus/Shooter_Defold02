@@ -110,14 +110,6 @@ instances {
     y: 452.0
   }
 }
-instances {
-  id: "enemy"
-  prototype: "/main/enemy.go"
-  position {
-    x: 60.0
-    y: 576.0
-  }
-}
 scale_along_z: 0
 embedded_instances {
   id: "Player"
@@ -252,7 +244,6 @@ embedded_instances {
 }
 embedded_instances {
   id: "EnemySpawn"
-  children: "enemy"
   data: "components {\n"
   "  id: \"spawn_enemy\"\n"
   "  component: \"/main/spawn_enemy.script\"\n"

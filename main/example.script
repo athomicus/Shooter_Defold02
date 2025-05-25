@@ -1,0 +1,14 @@
+function init(self)
+    -- Disable the collision object at the start
+    msg.post("#collisionobject", "disable")
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("enable_collision") then
+        -- Enable the collision object
+        msg.post("#collisionobject", "enable")
+    elseif message_id == hash("disable_collision") then
+        -- Disable the collision object
+        msg.post("#collisionobject", "disable")
+    end
+end

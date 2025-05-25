@@ -121,23 +121,7 @@
         :code
       ]
       [
-        "/main/bullet.script"
-        :code
-      ]
-      [
-        "/main/enemy.go"
-        :scene
-      ]
-      [
-        "/game.project"
-        :cljfx-form-view
-      ]
-      [
         "/main/bullet.go"
-        :scene
-      ]
-      [
-        "/main/main.collection"
         :scene
       ]
       [
@@ -147,6 +131,26 @@
       [
         "/main/spawn_enemy.script"
         :code
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
+        "/main/singleton.lua"
+        :code
+      ]
+      [
+        "/main/bullet.script"
+        :code
+      ]
+      [
+        "/main/enemy.go"
+        :scene
+      ]
+      [
+        "/main/main.collection"
+        :scene
       ]
     ]
   }

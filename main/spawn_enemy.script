@@ -1,7 +1,8 @@
 max_spawn_number = 5
+list_of_enemies = {}
 
 function init(self)
-    self.spawned_enemy_number = 1
+    self.spawned_enemy_number = 0
     -- Initialize the enemy factory or other necessary components
     self.enemy_factory = "#enemy_factory" -- Example factory reference
     -- Store the timer handle
@@ -9,12 +10,12 @@ function init(self)
 end
 
 function spawn_enemy(self)
-    -- Correctly concatenate the string and number
     --pprint("enemy_number: " .. self.spawned_enemy_number)    
     if self.spawned_enemy_number >= max_spawn_number then
         -- Stop spawning enemies
-        timer.cancel(self.spawn_timer) -- Use the stored timer handle
+        --timer.cancel(self.spawn_timer) -- Use the stored timer handle
         --print("Max enemy limit reached, stopping spawn.")
+        --(self.timer_duration).
         return
     else
         -- Increment the spawned enemy count
@@ -23,7 +24,26 @@ function spawn_enemy(self)
         local pos = vmath.vector3(math.random(60, 300), math.random(350, 550), 0)
         -- Create an enemy instance at the randomized position
         local e = factory.create(self.enemy_factory, pos)
+        -- Add the new enemy to the list
+        print ("created:"..e)
+        
+        table.insert(list_of_enemies, e)
     end
+end
+
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("remove_enemy_id") then
+        -- Remove the enemy from the list
+        for i, enemy in ipairs(list_of_enemies) do
+            if enemy == message.enemy_id then
+                table.remove(list_of_enemies, i)
+                print("Enemy removed from the list:", message.enemy_id)
+                break
+            end
+        end
+    end
+    pprint(list_of_enemies)
 end
 
 

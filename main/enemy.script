@@ -16,10 +16,13 @@ end
 function on_message(self, message_id, message, sender)
 	-- Handle incoming messages
 	if message_id == hash("trigger_response") and message.enter then
-		-- Play explosion sound
+    msg.post("EnemySpawn#spawn_enemy","remove_enemy_id",{enemy_id = go.get_id() })-- Notify the enemy spawn script
+    
+    --disable the collision node - cuzthere was multiscore
+    msg.post("#collisionobject", "disable")
 		sound.play("#explosion")
 		-- Send a message to the HUD GUI
-		msg.post("Hud#myGUI", "hello")
+		msg.post("Hud#myGUI", "score_up")
 		-- Play explosion animation and delete the game object after it finishes
 		sprite.play_flipbook("#sprite", "explosion", function()
 			go.delete() 
