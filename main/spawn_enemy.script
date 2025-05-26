@@ -1,6 +1,8 @@
 max_spawn_number = 5
 list_of_enemies = {}
 
+
+
 function init(self)
     self.spawned_enemy_number = 0
     -- Initialize the enemy factory or other necessary components
@@ -25,25 +27,36 @@ function spawn_enemy(self)
         -- Create an enemy instance at the randomized position
         local e = factory.create(self.enemy_factory, pos)
         -- Add the new enemy to the list
-        print ("created:"..e)
+        --print ("created:"..e)
         
         table.insert(list_of_enemies, e)
     end
+ end
+ 
+ local function is_empty(list)
+  return next(list) == nil -- Returns true if the list is empty, false otherwise
 end
-
 
 function on_message(self, message_id, message, sender)
     if message_id == hash("remove_enemy_id") then
-        -- Remove the enemy from the list
+        -- Remove the enemy from the listthen
         for i, enemy in ipairs(list_of_enemies) do
             if enemy == message.enemy_id then
                 table.remove(list_of_enemies, i)
-                print("Enemy removed from the list:", message.enemy_id)
-                break
-            end
+                --print("Enemy removed from the list:", message.enemy_id) table.remove(list_of_enemies, i)
+                break     
+            end          
         end
     end
-    pprint(list_of_enemies)
+    --pprint(list_of_enemies) 
+    --pprint(is_empty(list_of_enemies))
+    if is_empty(list_of_enemies) then        
+        self.spawned_enemy_number = 0
+        max_spawn_number = max_spawn_number + 1 
+    end
 end
+
+
+
 
 
