@@ -29,10 +29,6 @@
   :workflow {
     :recent-files [
       [
-        "/assets/sprites.atlas"
-        :scene
-      ]
-      [
         "/builtins/fonts/debug/always_on_top.font"
         :scene
       ]
@@ -145,16 +141,20 @@
         :code
       ]
       [
-        "/main/main.collection"
-        :scene
-      ]
-      [
         "/main/bullet.go"
         :scene
       ]
       [
         "/main/bullet.script"
         :code
+      ]
+      [
+        "/main/main.collection"
+        :scene
+      ]
+      [
+        "/README.md"
+        :html
       ]
     ]
   }
