@@ -105,27 +105,11 @@
         :scene
       ]
       [
-        "/assets/images/input/buttons.atlas"
-        :scene
-      ]
-      [
         "/main/score_buttons.gui_script"
         :code
       ]
       [
-        "/main/myGUI.gui"
-        :scene
-      ]
-      [
         "/main/rocket_catcher.script"
-        :code
-      ]
-      [
-        "/main/bullet.go"
-        :scene
-      ]
-      [
-        "/main/enemy.script"
         :code
       ]
       [
@@ -141,7 +125,15 @@
         :code
       ]
       [
-        "/main/bullet.script"
+        "/assets/images/input/buttons.atlas"
+        :scene
+      ]
+      [
+        "/main/myGUI.gui"
+        :scene
+      ]
+      [
+        "/main/GUI_score_buttons.gui_script"
         :code
       ]
       [
@@ -149,8 +141,20 @@
         :scene
       ]
       [
+        "/main/enemy.script"
+        :code
+      ]
+      [
         "/main/main.collection"
         :scene
+      ]
+      [
+        "/main/bullet.go"
+        :scene
+      ]
+      [
+        "/main/bullet.script"
+        :code
       ]
     ]
   }

@@ -1,5 +1,4 @@
 
-
 -- Initialize the score variable to keep track of the player's score
 local score = 0
 

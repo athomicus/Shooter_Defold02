@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooter_Defold02 Script Connections</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .script {
+            padding: 10px 20px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .arrow {
+            margin: 5px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shooter_Defold02 Script Connections</h1>
+    <p>This document explains how the scripts in the Shooter_Defold02 project are connected and interact with each other.</p>
+
+    <div class="diagram">
+        <div class="script">spawn_enemy.script</div>
+        <div class="arrow">↓</div>
+        <div class="script">enemy.script</div>
+        <div class="arrow">↔</div>
+        <div class="script">game_manager.script</div>
+    </div>
+
+    <h2>Script Descriptions</h2>
+    <ul>
+        <li><strong>spawn_enemy.script:</strong> Responsible for spawning enemies at random positions. It maintains a list of active enemies and handles their removal when necessary.</li>
+        <li><strong>enemy.script:</strong> Manages individual enemy behavior, such as movement and interactions with the player.</li>
+        <li><strong>game_manager.script:</strong> Oversees the overall game logic, including player interactions, score tracking, and game state management. It communicates with both <code>spawn_enemy.script</code> and <code>enemy.script</code>.</li>
+    </ul>
+
+    <h2>Object Creation and Messaging</h2>
+    <ul>
+        <li><strong>Object Creation:</strong>
+            <ul>
+                <li><code>spawn_enemy.script</code> uses a factory to create enemy objects at random positions.</li>
+                <li>Each enemy object is added to a list for tracking purposes.</li>
+            </ul>
+        </li>
+        <li><strong>Message Sending:</strong>
+            <ul>
+                <li><code>spawn_enemy.script</code> sends messages to <code>enemy.script</code> to initialize enemy behavior.</li>
+                <li><code>enemy.script</code> sends messages to <code>game_manager.script</code> when certain events occur, such as when an enemy is destroyed.</li>
+                <li><code>game_manager.script</code> sends messages to <code>spawn_enemy.script</code> to control spawning behavior (e.g., stopping spawns).</li>
+            </ul>
+        </li>
+        <li><strong>Message Receiving:</strong>
+            <ul>
+                <li><code>spawn_enemy.script</code> receives messages from <code>game_manager.script</code> to adjust spawning logic.</li>
+                <li><code>enemy.script</code> receives initialization messages from <code>spawn_enemy.script</code>.</li>
+                <li><code>game_manager.script</code> receives event messages from <code>enemy.script</code> to update the game state.</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
