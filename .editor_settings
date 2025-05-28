@@ -113,19 +113,11 @@
         :code
       ]
       [
-        "/game.project"
-        :cljfx-form-view
-      ]
-      [
         "/main/singleton.lua"
         :code
       ]
       [
         "/assets/images/input/buttons.atlas"
-        :scene
-      ]
-      [
-        "/main/myGUI.gui"
         :scene
       ]
       [
@@ -155,6 +147,14 @@
       [
         "/README.md"
         :html
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
+        "/main/myGUI.gui"
+        :scene
       ]
     ]
   }
