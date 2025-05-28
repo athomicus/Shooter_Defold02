@@ -10,6 +10,10 @@ function init(self)
 	
 	-- Animate the game object's position in a ping-pong loop
 	go.animate(".", "position.x", go.PLAYBACK_LOOP_PINGPONG, npos.x, go.EASING_INOUTSINE, 3) 
+
+  -- Animate the current game object's y position in a ping-pong motion
+-- Moves to npos.y over 3 seconds with a smooth easing effect (INOUTSINE)
+-- Starts after a delay of 1 second
 	go.animate(".", "position.y", go.PLAYBACK_LOOP_PINGPONG, npos.y, go.EASING_INOUTSINE, 3, 1) 
 end
 

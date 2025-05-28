@@ -109,10 +109,6 @@
         :code
       ]
       [
-        "/main/spawn_enemy.script"
-        :code
-      ]
-      [
         "/main/singleton.lua"
         :code
       ]
@@ -141,12 +137,12 @@
         :code
       ]
       [
-        "/main/main.collection"
-        :scene
-      ]
-      [
         "/README.md"
         :html
+      ]
+      [
+        "/main/spawn_enemy.script"
+        :code
       ]
       [
         "/game.project"
@@ -154,6 +150,10 @@
       ]
       [
         "/main/myGUI.gui"
+        :scene
+      ]
+      [
+        "/main/main.collection"
         :scene
       ]
     ]

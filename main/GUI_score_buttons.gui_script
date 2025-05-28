@@ -3,10 +3,16 @@
 local score = 0
 
 -- Timer variables
-local max_time = 30.0  -- Maximum time in seconds
+local max_time = 15.0  -- Maximum time in seconds
 local current_time = max_time
 local timer_active = true
 
+function restart_timer()
+  -- Reset the timer to the maximum time
+  current_time = max_time
+  timer_active = true
+   
+end
 function init(self)
 	msg.post(".", "acquire_input_focus") -- 
 	
@@ -44,6 +50,8 @@ function update(self, dt)
 			timer_active = false
 			-- Timer has reached zero - you can add game over logic here
 			print("Timer finished!")
+      --local name_of_1st_enemy = "EnemySpawn#spawn_enemy"
+      msg.post("EnemySpawn#spawn_enemy","order_attack")
 		end
 		
 		-- Update the display
@@ -59,6 +67,9 @@ function on_message(self, message_id, message, sender)
   score = score + 5
   end
 	
+  if message_id == hash("restart_timer") then
+    restart_timer()
+  end
 	-- Update the GUI text node named "score" to display the updated score
 	gui.set_text(gui.get_node("score"), score)
 end

@@ -11,48 +11,82 @@ function init(self)
     self.spawn_timer = timer.delay(0.1, true, function() spawn_enemy(self) end)
 end
 
+
+function restart_spawn(self)
+  -- Reset the enemy spawn count and clear the list of enemies
+  self.spawned_enemy_number = 0 --spawnuj od nowa
+  max_spawn_number = max_spawn_number + 1   --ale o 1 enemmy more   
+  pprint(list_of_enemies )
+end
+
 function spawn_enemy(self)
-    --pprint("enemy_number: " .. self.spawned_enemy_number)    
     if self.spawned_enemy_number >= max_spawn_number then
-        -- Stop spawning enemies
-        --timer.cancel(self.spawn_timer) -- Use the stored timer handle
-        --print("Max enemy limit reached, stopping spawn.")
-        --(self.timer_duration).
         return
-    else
-        -- Increment the spawned enemy count
-        self.spawned_enemy_number = self.spawned_enemy_number + 1
-        -- Create a randomized position using vmath.vector3
-        local pos = vmath.vector3(math.random(60, 300), math.random(350, 550), 0)
-        -- Create an enemy instance at the randomized position
-        local e = factory.create(self.enemy_factory, pos)
-        -- Add the new enemy to the list
-        --print ("created:"..e)
-        
-        table.insert(list_of_enemies, e)
     end
- end
- 
- local function is_empty(list)
-  return next(list) == nil -- Returns true if the list is empty, false otherwise
+    self.spawned_enemy_number = self.spawned_enemy_number + 1
+    local pos = vmath.vector3(math.random(60, 300), math.random(350, 550), 0)
+    local enemy = factory.create(self.enemy_factory, pos)
+    if enemy then
+        table.insert(list_of_enemies, enemy)
+    else
+        print("Error: Failed to create enemy")
+    end
+end
+
+local function is_empty(list)
+    return next(list) == nil -- Returns true if the list is empty, false otherwise
+end
+
+
+function delete_enemy_by_id(enemy_id)
+    if enemy_id then
+      timer.delay(2, false, 
+        function()
+            go.delete(enemy_id)
+            msg.post("Hud#myGUI", "restart_timer")
+        end)
+    end
+end
+
+function stop_enemy_animation(self,enemy_id)
+    if enemy_id then
+      go.cancel_animations(enemy_id)--, "euler.z")
+      player_x = go.get_position("Player#player").x
+      go.animate(enemy_id,"position.x", go.PLAYBACK_ONCE_FORWARD, player_x, go.EASING_INOUTEXPO, 0.3)
+      go.animate(enemy_id,"position.y", go.PLAYBACK_ONCE_FORWARD, -12, go.EASING_INOUTEXPO, 0.3) --EASING_LINEAR
+      --go.delete(enemy_id,2) -- Deletes the game object with the specified ID
+      delete_enemy_by_id(enemy_id)
+      list_of_enemies = {} -- Clear the list of enemies
+      restart_spawn(self)
+    else
+        print("Error: Invalid enemy ID")
+    end
 end
 
 function on_message(self, message_id, message, sender)
-    if message_id == hash("remove_enemy_id") then
-        -- Remove the enemy from the listthen
-        for i, enemy in ipairs(list_of_enemies) do
-            if enemy == message.enemy_id then
-                table.remove(list_of_enemies, i)
-                --print("Enemy removed from the list:", message.enemy_id) table.remove(list_of_enemies, i)
-                break     
-            end          
+    if message_id == hash("order_attack") then
+        -- Handle the order to attack
+        for _, enemy in ipairs(list_of_enemies) do
+          --print(enemy)
+          stop_enemy_animation(self,  enemy)
+             --local e = go.g
+            --enemy.cancel_animations(".", "euler.z")
         end
     end
-    --pprint(list_of_enemies) 
-    --pprint(is_empty(list_of_enemies))
-    if is_empty(list_of_enemies) then        
-        self.spawned_enemy_number = 0
-        max_spawn_number = max_spawn_number + 1 
+
+    if message_id == hash("remove_enemy_id") then
+        for i, enemy in ipairs(list_of_enemies) do
+           -- print(enemy) -- Debugging output
+            if enemy == message.enemy_id then
+                table.remove(list_of_enemies, i)
+                break
+            end
+        end
+    end
+
+    if is_empty(list_of_enemies) then --all enemy destroyed
+        restart_spawn(self)
+        msg.post("Hud#myGUI", "restart_timer")
     end
 end
 
