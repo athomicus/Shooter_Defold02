@@ -3,7 +3,7 @@
 local score = 0
 
 -- Timer variables
-local max_time = 15.0  -- Maximum time in seconds
+local max_time = 3.0  -- Maximum time in seconds
 local current_time = max_time
 local timer_active = true
 

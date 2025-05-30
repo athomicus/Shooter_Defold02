@@ -7,25 +7,34 @@ function init(self)
     self.spawned_enemy_number = 0
     -- Initialize the enemy factory or other necessary components
     self.enemy_factory = "#enemy_factory" -- Example factory reference
-    -- Store the timer handle
-    self.spawn_timer = timer.delay(0.1, true, function() spawn_enemy(self) end)
+    self.spawn_timer = timer.delay(0.1, true, function() spawn_enemy(self) end)     -- Store the timer handle
 end
 
 
-function restart_spawn(self)
-  -- Reset the enemy spawn count and clear the list of enemies
+function restart_spawn(self) --   -- Reset the enemy spawn count and clear the list of enemies
   self.spawned_enemy_number = 0 --spawnuj od nowa
-  max_spawn_number = max_spawn_number + 1   --ale o 1 enemmy more   
-  pprint(list_of_enemies )
+  max_spawn_number = max_spawn_number + 1  
 end
 
-function spawn_enemy(self)
+function remove_object_from_table(tbl, object)
+    for i, v in ipairs(tbl) do
+        if v == object then
+            table.remove(tbl, i)
+            break
+        end
+    end
+end
+
+
+
+function spawn_enemy(self) --spawn enemy and add ID to list_of_enemies
+  
     if self.spawned_enemy_number >= max_spawn_number then
         return
     end
     self.spawned_enemy_number = self.spawned_enemy_number + 1
     local pos = vmath.vector3(math.random(60, 300), math.random(350, 550), 0)
-    local enemy = factory.create(self.enemy_factory, pos)
+    local enemy = factory.create(self.enemy_factory, pos) 
     if enemy then
         table.insert(list_of_enemies, enemy)
     else
@@ -48,35 +57,44 @@ function delete_enemy_by_id(enemy_id)
     end
 end
 
-function stop_enemy_animation(self,enemy_id)
+function enemy_attack_player(self,enemy_id)
+    
     if enemy_id then
-      go.cancel_animations(enemy_id)--, "euler.z")
+     
+      go.cancel_animations(enemy_id)
       player_x = go.get_position("Player#player").x
       go.animate(enemy_id,"position.x", go.PLAYBACK_ONCE_FORWARD, player_x, go.EASING_INOUTEXPO, 0.3)
-      go.animate(enemy_id,"position.y", go.PLAYBACK_ONCE_FORWARD, -12, go.EASING_INOUTEXPO, 0.3) --EASING_LINEAR
-      --go.delete(enemy_id,2) -- Deletes the game object with the specified ID
+      go.animate(enemy_id,"position.y", go.PLAYBACK_ONCE_FORWARD, -12, go.EASING_INOUTEXPO, 0.3) 
       delete_enemy_by_id(enemy_id)
-      list_of_enemies = {} -- Clear the list of enemies
-      restart_spawn(self)
+      remove_object_from_table(list_of_enemies, enemy_id)
     else
         print("Error: Invalid enemy ID")
     end
 end
 
 function on_message(self, message_id, message, sender)
-    if message_id == hash("order_attack") then
-        -- Handle the order to attack
-        for _, enemy in ipairs(list_of_enemies) do
-          --print(enemy)
-          stop_enemy_animation(self,  enemy)
-             --local e = go.g
-            --enemy.cancel_animations(".", "euler.z")
+    if message_id == hash("order_attack") then -- Handle the order to attack
+      local _count  = #list_of_enemies
+     
+     
+      pprint("przed atakiem: ".._count)
+      pprint(list_of_enemies)
+
+        for i = #list_of_enemies, 1, -1 do  --iterate backwards to avoid index issues when removing elements
+            pprint("atakuje: "..list_of_enemies[i])
+            -- Call the function to attack the player with the enemy ID
+            -- Assuming enemy_attack_player is defined to handle the attack logic
+           enemy_attack_player(self, list_of_enemies[i])
         end
+        
+        _count  = #list_of_enemies
+        pprint("po ataku: ".._count)  
+        pprint(list_of_enemies)
+        timer.delay(5, false,  function()  restart_spawn(self)  end)
     end
 
     if message_id == hash("remove_enemy_id") then
         for i, enemy in ipairs(list_of_enemies) do
-           -- print(enemy) -- Debugging output
             if enemy == message.enemy_id then
                 table.remove(list_of_enemies, i)
                 break
