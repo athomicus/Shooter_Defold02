@@ -58,12 +58,19 @@ end
 
 function enemy_attack_player(self,enemy_id)
     
-    if enemy_id then
-     
+    if enemy_id then     
       go.cancel_animations(enemy_id)
+      --[[]
+        if go.exists(enemy_id) then
+        print("Enemy ID exist")
+        local collision_path = enemy_id .. "#collisionobject"
+        pprint("PATH_COL:"..collision_path) 
+        msg.post(collision_path, "disable")
+      end
+      ]]
       player_x = go.get_position("Player#player").x
-      go.animate(enemy_id,"position.x", go.PLAYBACK_ONCE_FORWARD, player_x, go.EASING_INOUTEXPO, 0.3)
-      go.animate(enemy_id,"position.y", go.PLAYBACK_ONCE_FORWARD, -12, go.EASING_INOUTEXPO, 0.3) 
+      go.animate(enemy_id,"position.x", go.PLAYBACK_ONCE_FORWARD, player_x, go.EASING_INOUTSINE, 3)
+      go.animate(enemy_id,"position.y", go.PLAYBACK_ONCE_FORWARD, -42, go.EASING_INOUTSINE, 3) 
       delete_enemy_by_id(enemy_id)
       remove_object_from_table(list_of_enemies, enemy_id)
     else
@@ -76,19 +83,19 @@ function on_message(self, message_id, message, sender)
       local _count  = #list_of_enemies
      
      
-      pprint("przed atakiem: ".._count)
-      pprint(list_of_enemies)
+      -- pprint("przed atakiem: ".._count)
+      --pprint(list_of_enemies)
 
         for i = #list_of_enemies, 1, -1 do  --iterate backwards to avoid index issues when removing elements
-            pprint("atakuje: "..list_of_enemies[i])
+            --pprint("atakuje: "..list_of_enemies[i])
             -- Call the function to attack the player with the enemy ID
             -- Assuming enemy_attack_player is defined to handle the attack logic
            enemy_attack_player(self, list_of_enemies[i])
         end
         
         _count  = #list_of_enemies
-        pprint("po ataku: ".._count)  
-        pprint(list_of_enemies)
+      --  pprint("po ataku: ".._count)  
+       -- pprint(list_of_enemies)
         --timer.delay(5, false,  function()  restart_spawn(self)  end)
     end
 
@@ -101,8 +108,15 @@ function on_message(self, message_id, message, sender)
         end
     end
 
-    if is_empty(list_of_enemies) then --all enemy destroyed then restart and restart bar
-      timer.delay(2, false,  function()  restart_spawn(self) msg.post("Hud#myGUI", "restart_timer") end)    
+    if message_id==hash("delete_enemy") then
+      local path_sprite = message.enemy_id .. "#sprite"
+      pprint(path_sprite)
+      sprite.play_flipbook(path_sprite, "explosion", function() delete_enemy_by_id(message.enemy_id)   end)
+    end
+
+
+    if is_empty(list_of_enemies) then --all enemy destroyed
+        timer.delay(5, false,  function()  restart_spawn(self) msg.post("Hud#myGUI", "restart_timer") end)    
       -- restart_spawn(self)
       --msg.post("Hud#myGUI", "restart_timer")
     end
