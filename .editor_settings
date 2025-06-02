@@ -61,16 +61,16 @@
         :code
       ]
       [
-        "/main/spawn_enemy.script"
-        :code
-      ]
-      [
         "/main/enemy.go"
         :scene
       ]
       [
         "/main/main.collection"
         :scene
+      ]
+      [
+        "/main/spawn_enemy.script"
+        :code
       ]
     ]
   }

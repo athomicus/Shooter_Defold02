@@ -27,12 +27,13 @@ function on_message(self, message_id, message, sender)
 		sound.play("#explosion")
 		-- Send a message to the HUD GUI
 		msg.post("Hud#myGUI", "score_up")
-    msg.post("EnemySpawn#spawn_enemy","remove_enemy_id",{enemy_id=enemy_id })-- Notify the enemy spawn script
+    --msg.post("EnemySpawn#spawn_enemy","remove_enemy_id",{enemy_id=enemy_id })-- Notify the enemy spawn script
     
     
 		-- Play explosion animation and delete the game object after it finishes
 		sprite.play_flipbook("#sprite", "explosion", function()
-     
+      msg.post("#sprite", "disable")
+       
       -- Delete the game object after the animation completes
      msg.post("EnemySpawn#spawn_enemy", "delete_enemy",{enemy_id=enemy_id })
     end)

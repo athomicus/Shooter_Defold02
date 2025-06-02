@@ -1,7 +1,8 @@
 max_spawn_number = 5
 list_of_enemies = {}
-
-
+speed_attack = 2 --speed of attack
+enemy_kamikaze = false
+player_x = 0
 
 function init(self)
     self.spawned_enemy_number = 0
@@ -14,6 +15,7 @@ end
 function restart_spawn(self) --   -- Reset the enemy spawn count and clear the list of enemies
   self.spawned_enemy_number = 0 --spawnuj od nowa
   max_spawn_number = max_spawn_number + 1  
+  msg.post("Hud#myGUI", "restart_timer") 
 end
 
 function remove_object_from_table(tbl, object)
@@ -47,11 +49,16 @@ local function is_empty(list)
 end
 
 
+
 function delete_enemy_by_id(enemy_id)
     if enemy_id then
-      timer.delay(2, false, 
+      timer.delay(speed_attack, false, 
         function()
-            go.delete(enemy_id)            
+           if go.exists(enemy_id) then
+                  go.delete(enemy_id)            
+            end
+            remove_object_from_table(list_of_enemies, enemy_id)  
+            
         end)
     end
 end
@@ -60,69 +67,54 @@ function enemy_attack_player(self,enemy_id)
     
     if enemy_id then     
       go.cancel_animations(enemy_id)
-      --[[]
-        if go.exists(enemy_id) then
-        print("Enemy ID exist")
-        local collision_path = enemy_id .. "#collisionobject"
-        pprint("PATH_COL:"..collision_path) 
-        msg.post(collision_path, "disable")
-      end
-      ]]
-      player_x = go.get_position("Player#player").x
-      go.animate(enemy_id,"position.x", go.PLAYBACK_ONCE_FORWARD, player_x, go.EASING_INOUTSINE, 3)
-      go.animate(enemy_id,"position.y", go.PLAYBACK_ONCE_FORWARD, -42, go.EASING_INOUTSINE, 3) 
+      local player_pos = go.get_position("Player#player")
+     -- go.animate(enemy_id,"position.x", go.PLAYBACK_ONCE_FORWARD, player_pos.x, go.EASING_INOUTSINE, speed_attack)
+     --go.animate(enemy_id,"position.y", go.PLAYBACK_ONCE_FORWARD, -42, go.EASING_INOUTSINE, speed_attack) 
       delete_enemy_by_id(enemy_id)
-      remove_object_from_table(list_of_enemies, enemy_id)
+     
     else
         print("Error: Invalid enemy ID")
     end
 end
 
+function count_elements(list)
+  return #list
+end
+
 function on_message(self, message_id, message, sender)
-    if message_id == hash("order_attack") then -- Handle the order to attack
-      local _count  = #list_of_enemies
-     
-     
-      -- pprint("przed atakiem: ".._count)
-      --pprint(list_of_enemies)
-
-        for i = #list_of_enemies, 1, -1 do  --iterate backwards to avoid index issues when removing elements
-            --pprint("atakuje: "..list_of_enemies[i])
-            -- Call the function to attack the player with the enemy ID
-            -- Assuming enemy_attack_player is defined to handle the attack logic
-           enemy_attack_player(self, list_of_enemies[i])
-        end
-        
-        _count  = #list_of_enemies
-      --  pprint("po ataku: ".._count)  
-       -- pprint(list_of_enemies)
-        --timer.delay(5, false,  function()  restart_spawn(self)  end)
+    if message_id == hash("order_attack") then 
+        enemy_kamikaze = true
+        for i = #list_of_enemies, 1, -1 do 
+          enemy_attack_player(self, list_of_enemies[i])
+        end       
     end
-
-    if message_id == hash("remove_enemy_id") then
-        for i, enemy in ipairs(list_of_enemies) do
-            if enemy == message.enemy_id then
-                table.remove(list_of_enemies, i)
-                break
-            end
-        end
-    end
-
+    
     if message_id==hash("delete_enemy") then
       local path_sprite = message.enemy_id .. "#sprite"
-      pprint(path_sprite)
-      sprite.play_flipbook(path_sprite, "explosion", function() delete_enemy_by_id(message.enemy_id)   end)
-    end
-
-
-    if is_empty(list_of_enemies) then --all enemy destroyed
-        timer.delay(5, false,  function()  restart_spawn(self) msg.post("Hud#myGUI", "restart_timer") end)    
-      -- restart_spawn(self)
-      --msg.post("Hud#myGUI", "restart_timer")
+      delete_enemy_by_id(message.enemy_id)  
     end
 end
 
 
+function update(self, dt)
+    if is_empty(list_of_enemies) then        
+      enemy_kamikaze = false
+      restart_spawn(self)
+    end
 
+    if enemy_kamikaze then
+        for i, enemy_id in ipairs(list_of_enemies) do
+        if go.get_position(enemy_id) then
+            player_pos = go.get_position("Player#player")
+            local enemy_pos = go.get_position(enemy_id)
+            local direction = vmath.normalize(player_pos - enemy_pos)
+            local speed = 500 -- pixels per second, adjust as needed
+            local new_pos = enemy_pos + direction * speed * dt
+            go.set_position(new_pos, enemy_id)
+        end
+    end
+    end
+    
+end
 
 
