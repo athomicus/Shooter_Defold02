@@ -105,11 +105,12 @@ function update(self, dt)
     if enemy_kamikaze then
         for i, enemy_id in ipairs(list_of_enemies) do
         if go.get_position(enemy_id) then
-            player_pos = go.get_position("Player#player")
-            local enemy_pos = go.get_position(enemy_id)
+            local player_pos = go.get_position("Player#player")
+            player_pos.y =-90    
+            local enemy_pos = go.get_position(enemy_id)            
             local direction = vmath.normalize(player_pos - enemy_pos)
             local speed = 500 -- pixels per second, adjust as needed
-            local new_pos = enemy_pos + direction * speed * dt
+            local new_pos = enemy_pos + direction * speed * dt                
             go.set_position(new_pos, enemy_id)
         end
     end
