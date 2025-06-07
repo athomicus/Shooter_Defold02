@@ -23,7 +23,15 @@ function on_message(self, message_id, message, sender)
     local enemy_id = go.get_id() -- Get the ID of the current game object  
    
    --disable the collision node - cuzthere was multiscore
-    msg.post("#collisionobject", "disable")
+    local what_hitted_enemy = message.other_id  
+    pprint(what_hitted_enemy) --giving id
+    
+     
+    if tostring(what_hitted_enemy) == "Player#collision" then
+      pprint("zderzenie")
+      msg.post("#collisionobject", "disable")
+    end
+
 		sound.play("#explosion")
 		-- Send a message to the HUD GUI
 		msg.post("Hud#myGUI", "score_up")

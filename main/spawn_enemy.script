@@ -35,7 +35,7 @@ function spawn_enemy(self) --spawn enemy and add ID to list_of_enemies
         return
     end
     self.spawned_enemy_number = self.spawned_enemy_number + 1
-    local pos = vmath.vector3(math.random(60, 300), math.random(350, 550), 0)
+    local pos = vmath.vector3(math.random(30, 300), math.random(350, 550), 0)
     local enemy = factory.create(self.enemy_factory, pos) 
     if enemy then
         table.insert(list_of_enemies, enemy)
@@ -97,13 +97,16 @@ end
 
 
 function update(self, dt)
+    --pprint(count_elements(list_of_enemies))
     if is_empty(list_of_enemies) then        
       enemy_kamikaze = false
+      --pprint(count_elements(list_of_enemies))
+
       restart_spawn(self)
     end
 
     if enemy_kamikaze then
-        for i, enemy_id in ipairs(list_of_enemies) do
+      for i, enemy_id in ipairs(list_of_enemies) do
         if go.get_position(enemy_id) then
             local player_pos = go.get_position("Player#player")
             player_pos.y =-90    
@@ -113,7 +116,7 @@ function update(self, dt)
             local new_pos = enemy_pos + direction * speed * dt                
             go.set_position(new_pos, enemy_id)
         end
-    end
+      end
     end
     
 end

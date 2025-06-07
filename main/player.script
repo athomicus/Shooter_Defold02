@@ -29,7 +29,7 @@ end
 
 function move_player(offset)
 	local pos = go.get_position()
-	if pos.x + offset < 0 or pos.x + offset > 360 then 
+	if pos.x + offset < 10 or pos.x + offset > 350 then 
 		return -- exit the function
 	end 
 	pos.x = pos.x + offset

@@ -49,7 +49,7 @@ function update(self, dt)
 			current_time = 0
 			timer_active = false
 			-- Timer has reached zero - you can add game over logic here
-			print("Timer finished!")
+			--print("Timer finished!")
       --local name_of_1st_enemy = "EnemySpawn#spawn_enemy"
       msg.post("EnemySpawn#spawn_enemy","order_attack")
 		end

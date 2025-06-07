@@ -29,36 +29,124 @@
   :workflow {
     :recent-files [
       [
-        "/README.md"
-        :html
+        "/builtins/fonts/debug/always_on_top.font"
+        :scene
       ]
       [
-        "/input/game.input_binding"
+        "/assets/fonts/abite.font"
+        :scene
+      ]
+      [
+        "/main/shot.sound"
         :cljfx-form-view
       ]
       [
-        "/assets/sprites.atlas"
-        :scene
+        "/main/explosion.sound"
+        :cljfx-form-view
       ]
       [
-        "/main/bullet.go"
-        :scene
+        "/main/bck_sound.sound"
+        :cljfx-form-view
       ]
       [
-        "/main/enemy.script"
+        "/main/score_gui_script.gui_script"
         :code
+      ]
+      [
+        "/main/score.gui_script"
+        :code
+      ]
+      [
+        "/main/play_backround_music.script"
+        :code
+      ]
+      [
+        "/main/background.atlas"
+        :scene
+      ]
+      [
+        "/main/stars3.go"
+        :scene
+      ]
+      [
+        "/main/starsA.go"
+        :scene
+      ]
+      [
+        "/main/sprites.atlas"
+        :scene
+      ]
+      [
+        "/main/stars3line.go"
+        :scene
+      ]
+      [
+        "/main/move_background.script"
+        :code
+      ]
+      [
+        "/main/stars3_line.go"
+        :scene
+      ]
+      [
+        "/main/stars2_line.go"
+        :scene
+      ]
+      [
+        "/main/stars1_line.go"
+        :scene
+      ]
+      [
+        "/main/score_buttons.gui_script"
+        :code
+      ]
+      [
+        "/main/rocket_catcher.script"
+        :code
+      ]
+      [
+        "/main/singleton.lua"
+        :code
+      ]
+      [
+        "/assets/images/input/buttons.atlas"
+        :scene
       ]
       [
         "/main/bullet.script"
         :code
       ]
       [
+        "/README.md"
+        :html
+      ]
+      [
         "/game.project"
         :cljfx-form-view
       ]
       [
+        "/main/enemy.script"
+        :code
+      ]
+      [
+        "/main/myGUI.gui"
+        :scene
+      ]
+      [
+        "/main/spawn_enemy.script"
+        :code
+      ]
+      [
+        "/main/GUI_score_buttons.gui_script"
+        :code
+      ]
+      [
         "/main/player.script"
         :code
+      ]
+      [
+        "/main/bullet.go"
+        :scene
       ]
       [
         "/main/enemy.go"
@@ -67,10 +155,6 @@
       [
         "/main/main.collection"
         :scene
-      ]
-      [
-        "/main/spawn_enemy.script"
-        :code
       ]
     ]
   }
