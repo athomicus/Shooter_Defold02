@@ -24,14 +24,13 @@ function on_message(self, message_id, message, sender)
    
    --disable the collision node - cuzthere was multiscore
     local what_hitted_enemy = message.other_id  
-    pprint(what_hitted_enemy) --giving id
     
-     
-    if tostring(what_hitted_enemy) == "Player#collision" then
-      pprint("zderzenie")
-      msg.post("#collisionobject", "disable")
+    --if tostring(what_hitted_enemy):find("Player") then
+    
+      if message.other_group == hash("player") then
+      pprint("zderzenie:"..enemy_id )
+        --msg.post("#collisionobject", "disable")
     end
-
 		sound.play("#explosion")
 		-- Send a message to the HUD GUI
 		msg.post("Hud#myGUI", "score_up")
@@ -62,7 +61,7 @@ function update(self, dt)
 	-- Update the timer
 	self.time = self.time + dt
 	-- Update the position (currently commented out)
-	self.new_pos = self.pos
+	--self.new_pos = self.pos
 	-- Uncommented code could calculate and set new positions dynamically
 	-- Example:
 	-- local sine = math.sin(2 * self.time)
@@ -94,3 +93,5 @@ function init(self)
 	go.animate("#sprite", "tint.x", go.PLAYBACK_LOOP_PINGPONG, 0.0, go.EASING_INOUTSINE, 1.5)
 end
 --]]
+--	up_down(self)
+	-- Animate the scale and sprite tint in parallel	go.animate(".", "scale.y", go.PLAYBACK_LOOP_PINGPONG, 0.5, go.EASING_INOUTSINE, 1)	go.animate("#sprite", "tint.x", go.PLAYBACK_LOOP_PINGPONG, 0.0, go.EASING_INOUTSINE, 1.5)end--]]

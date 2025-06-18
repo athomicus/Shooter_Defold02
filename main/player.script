@@ -1,9 +1,10 @@
 rocket_counter = 0
+bullet_spawning_speed = 0.5 -- Speed at which bullets are spawned
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	--factory.create("#factory")  #
 
-	timer.delay(0.1, true, function()
+	timer.delay(bullet_spawning_speed, true, function()
 		factory.create("#factory")
        --rocket_counter = rocket_counter + 1
        --pprint(rocket_counter)

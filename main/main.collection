@@ -183,6 +183,7 @@ embedded_instances {
 }
 embedded_instances {
   id: "Hud"
+  children: "progress_bar"
   data: "components {\n"
   "  id: \"myGUI\"\n"
   "  component: \"/main/myGUI.gui\"\n"
@@ -315,5 +316,17 @@ embedded_instances {
   position {
     x: 189.0
     y: 713.0
+  }
+}
+embedded_instances {
+  id: "progress_bar"
+  data: "components {\n"
+  "  id: \"progress_bar\"\n"
+  "  component: \"/main/progress_bar.gui\"\n"
+  "}\n"
+  ""
+  position {
+    x: 216.0
+    y: 532.0
   }
 }

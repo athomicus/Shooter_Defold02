@@ -16,6 +16,7 @@ function restart_spawn(self) --   -- Reset the enemy spawn count and clear the l
   self.spawned_enemy_number = 0 --spawnuj od nowa
   max_spawn_number = max_spawn_number + 1  
   msg.post("Hud#myGUI", "restart_timer") 
+  msg.post("/progress_bar#progress_bar", "restart_timer") 
 end
 
 function remove_object_from_table(tbl, object)
@@ -109,11 +110,14 @@ function update(self, dt)
       for i, enemy_id in ipairs(list_of_enemies) do
         if go.get_position(enemy_id) then
             local player_pos = go.get_position("Player#player")
-            player_pos.y =-90    
-            local enemy_pos = go.get_position(enemy_id)            
+            player_pos.y = -90    
+            local enemy_pos = go.get_position(enemy_id)  
+            
             local direction = vmath.normalize(player_pos - enemy_pos)
-            local speed = 500 -- pixels per second, adjust as needed
-            local new_pos = enemy_pos + direction * speed * dt                
+            local speed = 1200 -- pixels per second, adjust as needed
+            local new_x = enemy_pos.x + direction.x * speed * dt + math.random(-5, 5)
+            local new_y = enemy_pos.y + direction.y * speed / 4 * dt
+            local new_pos = vmath.vector3(new_x, new_y, enemy_pos.z)
             go.set_position(new_pos, enemy_id)
         end
       end
