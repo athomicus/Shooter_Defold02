@@ -4,6 +4,7 @@ bullet_spawning_speed = 0.5 -- Speed at which bullets are spawned
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	--factory.create("#factory")  #
+  self.health = Health -- Initialize health
 
 	timer.delay(bullet_spawning_speed, true, function()
 		factory.create("#factory")
@@ -44,14 +45,24 @@ function on_message(self, message_id, message, sender)
 	-- Handle incoming messages
 	if message_id == hash("trigger_response") and message.enter then
     local enemy_id = go.get_id() -- Get the ID of the current game object  
-   
-      --if tostring(what_hitted_enemy):find("Player") then
-    
+        --if tostring(what_hitted_enemy):find("Player") then
       if message.other_group == hash("enemies") then
-        pprint("gracz zderzenie z: " .. enemy_id )    
+        pprint("gracz zderzenie z: " .. enemy_id )  
+        decrease_health(self,10) -- Decrease health by 10 when hit by an enemy
       end
   end
 
+   
+end
+ 
+function decrease_health(self,amount)
+  self.health=self.health - amount
+  msg.post("Hud#progress_bar_player_life","player_health", { health = self.health }) 
+  if self.health<= 0 then
+    self.health= 0
+    --msg.post(".", "release_input_focus") -- Release input focus when health reaches zero
+    msg.post("Hud#myGUI", "game_over") -- Notify the HUD GUI about game over
+  end
 end
 
 

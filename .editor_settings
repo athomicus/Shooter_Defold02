@@ -93,10 +93,6 @@
         :code
       ]
       [
-        "/main/player.script"
-        :code
-      ]
-      [
         "/main/singleton.lua"
         :code
       ]
@@ -129,10 +125,6 @@
         :code
       ]
       [
-        "/main/Gui/health_bar.gui_script"
-        :code
-      ]
-      [
         "/main/gui_health.gui_script"
         :code
       ]
@@ -153,8 +145,16 @@
         :scene
       ]
       [
+        "/main/player.script"
+        :code
+      ]
+      [
         "/main/main.collection"
         :scene
+      ]
+      [
+        "/main/Gui/health_bar.gui_script"
+        :code
       ]
     ]
   }
