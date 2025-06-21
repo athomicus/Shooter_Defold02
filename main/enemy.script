@@ -28,7 +28,7 @@ function on_message(self, message_id, message, sender)
     --if tostring(what_hitted_enemy):find("Player") then
     
       if message.other_group == hash("player") then
-      pprint("zderzenie:"..enemy_id )
+      --pprint("zderzenie:"..enemy_id )
         --msg.post("#collisionobject", "disable")
     end
 		sound.play("#explosion")

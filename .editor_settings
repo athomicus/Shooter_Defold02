@@ -29,34 +29,6 @@
   :workflow {
     :recent-files [
       [
-        "/main/explosion.sound"
-        :cljfx-form-view
-      ]
-      [
-        "/main/bck_sound.sound"
-        :cljfx-form-view
-      ]
-      [
-        "/main/score_gui_script.gui_script"
-        :code
-      ]
-      [
-        "/main/score.gui_script"
-        :code
-      ]
-      [
-        "/main/play_backround_music.script"
-        :code
-      ]
-      [
-        "/main/background.atlas"
-        :scene
-      ]
-      [
-        "/main/stars3.go"
-        :scene
-      ]
-      [
         "/main/starsA.go"
         :scene
       ]
@@ -117,10 +89,6 @@
         :scene
       ]
       [
-        "/main/enemy.go"
-        :scene
-      ]
-      [
         "/main/enemy.script"
         :code
       ]
@@ -141,19 +109,51 @@
         :code
       ]
       [
-        "/main/myGUI.gui"
+        "/main/progress_bar.gui"
         :scene
       ]
       [
-        "/main/main.collection"
+        "/main/progress_bar_player_life.gui"
         :scene
+      ]
+      [
+        "/main/player_health_bar.gui_script"
+        :code
+      ]
+      [
+        "/main/enemy.go"
+        :scene
+      ]
+      [
+        "/main/Gui/GUI_score_buttons.gui_script"
+        :code
+      ]
+      [
+        "/main/Gui/health_bar.gui_script"
+        :code
+      ]
+      [
+        "/main/gui_health.gui_script"
+        :code
       ]
       [
         "/main/progress_bar.gui_script"
         :code
       ]
       [
-        "/main/progress_bar.gui"
+        "/main/Gui/progress_bar.gui"
+        :scene
+      ]
+      [
+        "/main/myGUI.gui"
+        :scene
+      ]
+      [
+        "/main/Gui/progress_bar_player_life.gui"
+        :scene
+      ]
+      [
+        "/main/main.collection"
         :scene
       ]
     ]

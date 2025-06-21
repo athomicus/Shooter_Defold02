@@ -1,12 +1,16 @@
-script: "/main/progress_bar.gui_script"
+script: "/main/Gui/player_health.gui_script"
 fonts {
   name: "always_on_top"
   font: "/builtins/fonts/debug/always_on_top.font"
 }
+fonts {
+  name: "abite"
+  font: "/assets/fonts/abite.font"
+}
 nodes {
   position {
-    x: 66.0
-    y: 7.0
+    x: 79.0
+    y: 590.0
   }
   size {
     x: 132.0
@@ -20,12 +24,12 @@ nodes {
   type: TYPE_BOX
   id: "progress_bar_background"
   inherit_alpha: true
-  alpha: 0.77
+  alpha: 0.35
 }
 nodes {
   position {
-    x: 1.0
-    y: 7.0
+    x: 14.0
+    y: 590.0
   }
   size {
     x: 130.0
@@ -37,22 +41,26 @@ nodes {
     z: 0.0
   }
   type: TYPE_BOX
-  id: "progress_bar"
+  id: "bar_health"
   pivot: PIVOT_W
   inherit_alpha: true
-  alpha: 0.75
+  alpha: 0.63
 }
 nodes {
   position {
-    x: 61.0
-    y: 6.0
+    x: 74.0
+    y: 590.0
+  }
+  scale {
+    x: 0.594031
+    y: 0.581871
   }
   size {
     x: 200.0
     y: 100.0
   }
   type: TYPE_TEXT
-  text: "Player Life\n"
+  text: "player health\n"
   ""
   font: "always_on_top"
   id: "text"

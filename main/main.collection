@@ -183,10 +183,17 @@ embedded_instances {
 }
 embedded_instances {
   id: "Hud"
-  children: "progress_bar"
   data: "components {\n"
   "  id: \"myGUI\"\n"
-  "  component: \"/main/myGUI.gui\"\n"
+  "  component: \"/main/Gui/buttons_score.gui\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"bar_waiting_for_attack\"\n"
+  "  component: \"/main/Gui/attack_bar.gui\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"progress_bar_player_life\"\n"
+  "  component: \"/main/Gui/player_health.gui\"\n"
   "}\n"
   ""
 }
@@ -316,17 +323,5 @@ embedded_instances {
   position {
     x: 189.0
     y: 713.0
-  }
-}
-embedded_instances {
-  id: "progress_bar"
-  data: "components {\n"
-  "  id: \"progress_bar\"\n"
-  "  component: \"/main/progress_bar.gui\"\n"
-  "}\n"
-  ""
-  position {
-    x: 216.0
-    y: 532.0
   }
 }

@@ -15,8 +15,8 @@ end
 function restart_spawn(self) --   -- Reset the enemy spawn count and clear the list of enemies
   self.spawned_enemy_number = 0 --spawnuj od nowa
   max_spawn_number = max_spawn_number + 1  
-  msg.post("Hud#myGUI", "restart_timer") 
-  msg.post("/progress_bar#progress_bar", "restart_timer") 
+  --msg.post("Hud#myGUI", "restart_timer") 
+  msg.post("/Hud#bar_waiting_for_attack", "restart_timer") 
 end
 
 function remove_object_from_table(tbl, object)

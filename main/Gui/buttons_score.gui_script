@@ -6,20 +6,20 @@ local score = 0
 local max_time = 3.0  -- Maximum time in seconds
 local current_time = max_time
 local timer_active = true
-
+--[[
 function restart_timer()
   -- Reset the timer to the maximum time
   current_time = max_time
   timer_active = true
-end
+end ]]
 function init(self)
 	msg.post(".", "acquire_input_focus") -- 
 	
 	-- Initialize timer display
-	update_timer_display(self)
+	--update_timer_display2(self)
 end
-
-function update_timer_display(self)
+--[[
+function update_timer_display2(self)
 	 
 	local timer_bar_node = gui.get_node ("bar_wave")
 	if timer_bar_node then
@@ -54,9 +54,11 @@ function update(self, dt)
 		end
 		
 		-- Update the display
-		update_timer_display(self)
+		update_timer_display2(self)
 	end
 end
+
+]]
 
 -- Function to handle incoming messages
 function on_message(self, message_id, message, sender)
@@ -66,9 +68,9 @@ function on_message(self, message_id, message, sender)
   score = score + 5
   end
 	
-  if message_id == hash("restart_timer") then
-    restart_timer()
-  end
+  --if message_id == hash("restart_timer") then
+   -- restart_timer()
+  --end
 	-- Update the GUI text node named "score" to display the updated score
 	gui.set_text(gui.get_node("score"), score)
 end

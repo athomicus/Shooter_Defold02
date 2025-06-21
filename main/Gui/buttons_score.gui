@@ -1,4 +1,4 @@
-script: "/main/GUI_score_buttons.gui_script"
+script: "/main/Gui/buttons_score.gui_script"
 fonts {
   name: "c64"
   font: "/assets/fonts/abite.font"
@@ -22,45 +22,6 @@ nodes {
   id: "score"
   xanchor: XANCHOR_RIGHT
   inherit_alpha: true
-}
-nodes {
-  position {
-    x: 79.0
-    y: 586.0
-  }
-  size {
-    x: 132.0
-    y: 12.0
-  }
-  color {
-    x: 0.3
-    y: 0.3
-    z: 0.3
-  }
-  type: TYPE_BOX
-  id: "timer_bar_background"
-  inherit_alpha: true
-  alpha: 0.77
-}
-nodes {
-  position {
-    x: 14.0
-    y: 586.0
-  }
-  size {
-    x: 130.0
-    y: 10.0
-  }
-  color {
-    x: 0.0
-    y: 0.502
-    z: 0.0
-  }
-  type: TYPE_BOX
-  id: "bar_wave"
-  pivot: PIVOT_W
-  inherit_alpha: true
-  alpha: 0.75
 }
 nodes {
   position {
@@ -95,31 +56,6 @@ nodes {
   inherit_alpha: true
   alpha: 0.67
   size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
-    x: 80.0
-    y: 587.0
-  }
-  scale {
-    x: 0.35
-    y: 0.35
-  }
-  size {
-    x: 100.0
-    y: 100.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  type: TYPE_TEXT
-  text: "time to attack\n"
-  ""
-  font: "c64"
-  id: "time to attack"
-  inherit_alpha: true
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT

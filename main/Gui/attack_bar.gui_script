@@ -1,0 +1,60 @@
+-- Timer variables
+local time_for_attack = 3.0  -- Maximum time in seconds
+local current_time = time_for_attack
+local enemy_wait_for_attack = true
+
+function restart_timer()
+	current_time = time_for_attack
+	enemy_wait_for_attack= true
+end
+
+function init(self)
+	--msg.post(".", "acquire_input_focus") -- 
+	update_timer_display(self)
+end
+
+function update_timer_display(self)	 
+	local progress_bar_node = gui.get_node("progress_bar")
+	if progress_bar_node then
+		local x_bar_size=130 -- getsize() zmienic
+		local fill_percentage = current_time / time_for_attack
+		local original_size = gui.get_size(progress_bar_node)
+		gui.set_size(progress_bar_node, vmath.vector3(x_bar_size * fill_percentage, original_size.y, original_size.z))
+		
+		-- Change color based on remaining time
+		if fill_percentage > 0.5 then
+			gui.set_color(progress_bar_node, vmath.vector4(0.0, 0.8, 0.2, 0.4)) -- Green
+		elseif fill_percentage > 0.25 then
+			gui.set_color(progress_bar_node, vmath.vector4(1.0, 1.0, 0.0, 0.4)) -- Yellow
+		else
+			gui.set_color(progress_bar_node, vmath.vector4(1.0, 0.2, 0.0, 0.4)) -- Red
+		end
+	end
+end
+
+function on_message(self, message_id, message)
+
+   if message_id == hash("restart_timer") then
+    
+    pprint("Received restart_timer message")
+    restart_timer()
+  end
+
+end
+
+function update(self, dt)
+	if enemy_wait_for_attack and current_time > 0 then
+		current_time = current_time - dt
+		
+		-- Ensure timer doesn't go below 0
+		if current_time < 0 then
+			current_time = 0
+			enemy_wait_for_attack = false
+		
+     msg.post("EnemySpawn#spawn_enemy","order_attack")
+		end
+		
+		-- Update the display
+		update_timer_display(self)
+	end
+end

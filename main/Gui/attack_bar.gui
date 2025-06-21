@@ -1,0 +1,71 @@
+script: "/main/Gui/attack_bar.gui_script"
+fonts {
+  name: "always_on_top"
+  font: "/builtins/fonts/debug/always_on_top.font"
+}
+fonts {
+  name: "abite"
+  font: "/assets/fonts/abite.font"
+}
+nodes {
+  position {
+    x: 79.0
+    y: 562.0
+  }
+  size {
+    x: 132.0
+    y: 12.0
+  }
+  color {
+    x: 0.3
+    y: 0.3
+    z: 0.3
+  }
+  type: TYPE_BOX
+  id: "progress_bar_background"
+  inherit_alpha: true
+  alpha: 0.35
+}
+nodes {
+  position {
+    x: 14.0
+    y: 562.0
+  }
+  size {
+    x: 130.0
+    y: 10.0
+  }
+  color {
+    x: 0.0
+    y: 0.502
+    z: 0.0
+  }
+  type: TYPE_BOX
+  id: "progress_bar"
+  pivot: PIVOT_W
+  inherit_alpha: true
+  alpha: 0.63
+}
+nodes {
+  position {
+    x: 74.0
+    y: 562.0
+  }
+  scale {
+    x: 0.594031
+    y: 0.581871
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "time_for_attack\n"
+  ""
+  font: "always_on_top"
+  id: "text"
+  inherit_alpha: true
+  alpha: 0.67
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
