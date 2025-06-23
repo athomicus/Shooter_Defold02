@@ -36,7 +36,7 @@ function on_message(self, message_id, message)
 
    if message_id == hash("restart_timer") then
     
-    pprint("Received restart_timer message")
+    --pprint("Received restart_timer message")
     restart_timer()
   end
 

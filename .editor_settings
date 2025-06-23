@@ -29,10 +29,6 @@
   :workflow {
     :recent-files [
       [
-        "/main/starsA.go"
-        :scene
-      ]
-      [
         "/main/sprites.atlas"
         :scene
       ]
@@ -77,10 +73,6 @@
         :html
       ]
       [
-        "/game.project"
-        :cljfx-form-view
-      ]
-      [
         "/main/GUI_score_buttons.gui_script"
         :code
       ]
@@ -94,10 +86,6 @@
       ]
       [
         "/main/singleton.lua"
-        :code
-      ]
-      [
-        "/main/spawn_enemy.script"
         :code
       ]
       [
@@ -115,10 +103,6 @@
       [
         "/main/player_health_bar.gui_script"
         :code
-      ]
-      [
-        "/main/enemy.go"
-        :scene
       ]
       [
         "/main/Gui/GUI_score_buttons.gui_script"
@@ -149,12 +133,28 @@
         :code
       ]
       [
+        "/main/Gui/health_bar.gui_script"
+        :code
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
+        "/input/game.input_binding"
+        :cljfx-form-view
+      ]
+      [
+        "/main/spawn_enemy.script"
+        :code
+      ]
+      [
         "/main/main.collection"
         :scene
       ]
       [
-        "/main/Gui/health_bar.gui_script"
-        :code
+        "/main/enemy.go"
+        :scene
       ]
     ]
   }

@@ -6,64 +6,15 @@ local score = 0
 local max_time = 3.0  -- Maximum time in seconds
 local current_time = max_time
 local timer_active = true
---[[
-function restart_timer()
-  -- Reset the timer to the maximum time
-  current_time = max_time
-  timer_active = true
-end ]]
+
 function init(self)
 	msg.post(".", "acquire_input_focus") -- 
-	
-	-- Initialize timer display
-	--update_timer_display2(self)
-end
---[[
-function update_timer_display2(self)
-	 
-	local timer_bar_node = gui.get_node ("bar_wave")
-	if timer_bar_node then
-    local x_bar_size=130
-		local fill_percentage = current_time / max_time
-		local original_size = gui.get_size(timer_bar_node)
-		gui.set_size(timer_bar_node, vmath.vector3(x_bar_size * fill_percentage, original_size.y, original_size.z))
-		
-		-- Change color based on remaining time
-		if fill_percentage > 0.5 then
-			gui.set_color(timer_bar_node, vmath.vector4(0.0, 0.8, 0.2, 1.0)) -- Green
-		elseif fill_percentage > 0.25 then
-			gui.set_color(timer_bar_node, vmath.vector4(1.0, 1.0, 0.0, 1.0)) -- Yellow
-		else
-			gui.set_color(timer_bar_node, vmath.vector4(1.0, 0.2, 0.0, 1.0)) -- Red
-		end
-	end
 end
 
-function update(self, dt)
-	if timer_active and current_time > 0 then
-		current_time = current_time - dt
-		
-		-- Ensure timer doesn't go below 0
-		if current_time < 0 then
-			current_time = 0
-			timer_active = false
-			-- Timer has reached zero - you can add game over logic here
-			--print("Timer finished!")
-      --local name_of_1st_enemy = "EnemySpawn#spawn_enemy"
-      msg.post("EnemySpawn#spawn_enemy","order_attack")
-		end
-		
-		-- Update the display
-		update_timer_display2(self)
-	end
-end
-
-]]
 
 -- Function to handle incoming messages
 function on_message(self, message_id, message, sender)
-	-- Increment the score by 500 when a message is received
-  --print(message_id)
+
   if message_id == hash("score_up") then
   score = score + 5
   end

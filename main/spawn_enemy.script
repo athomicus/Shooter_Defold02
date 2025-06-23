@@ -1,6 +1,6 @@
-max_spawn_number = 5
+max_spawn_number = 3
 list_of_enemies = {}
-speed_attack = 2 --speed of attack
+speed_attack = 2.2 --speed of attack
 enemy_kamikaze = false
 player_x = 0
 
@@ -11,9 +11,10 @@ function init(self)
     self.spawn_timer = timer.delay(0.1, true, function() spawn_enemy(self) end)     -- Store the timer handle
 end
 
-
 function restart_spawn(self) --   -- Reset the enemy spawn count and clear the list of enemies
   self.spawned_enemy_number = 0 --spawnuj od nowa
+ 
+  pprint("restart_spawn")
   max_spawn_number = max_spawn_number + 1  
   --msg.post("Hud#myGUI", "restart_timer") 
   msg.post("/Hud#bar_waiting_for_attack", "restart_timer") 
@@ -33,6 +34,9 @@ end
 function spawn_enemy(self) --spawn enemy and add ID to list_of_enemies
   
     if self.spawned_enemy_number >= max_spawn_number then
+       -- pprint(self.spawned_enemy_number)
+        pprint("max_spawn_number:"..max_spawn_number)
+        --timer.cancel(self.spawn_timer) -- Stop the timer if max number of enemies is reached
         return
     end
     self.spawned_enemy_number = self.spawned_enemy_number + 1
@@ -50,7 +54,6 @@ local function is_empty(list)
 end
 
 
-
 function delete_enemy_by_id(enemy_id)
     if enemy_id then
       timer.delay(speed_attack, false, 
@@ -59,8 +62,18 @@ function delete_enemy_by_id(enemy_id)
                   go.delete(enemy_id)            
             end
             remove_object_from_table(list_of_enemies, enemy_id)  
-            
+            --
         end)
+    end
+end
+
+function delete_enemy_by_id_without_delay(enemy_id)
+    if enemy_id then
+       
+      if go.exists(enemy_id) then
+        go.delete(enemy_id)            
+      end
+      remove_object_from_table(list_of_enemies, enemy_id)  
     end
 end
 
@@ -92,17 +105,16 @@ function on_message(self, message_id, message, sender)
     
     if message_id==hash("delete_enemy") then
       local path_sprite = message.enemy_id .. "#sprite"
-      delete_enemy_by_id(message.enemy_id)  
+      delete_enemy_by_id_without_delay(message.enemy_id)  
     end
 end
 
 
 function update(self, dt)
-    --pprint(count_elements(list_of_enemies))
-    if is_empty(list_of_enemies) then        
-      enemy_kamikaze = false
-      --pprint(count_elements(list_of_enemies))
-
+     
+   
+    if is_empty(list_of_enemies) and enemy_kamikaze  then        
+      enemy_kamikaze = false     
       restart_spawn(self)
     end
 
