@@ -29,7 +29,7 @@ function on_message(self, message_id, message, sender)
     end
 
     if message_id == hash("trigger_response") and message.enter then
-      local enemy_id = go.get_id() -- Get the ID of the current game object
+      --local enemy_id = go.get_id() -- Get the ID of the current game object
         if message.other_group == hash("enemies") then
         -- pprint("gracz zderzenie z: " .. enemy_id )  
          decrease_health(self,10) -- Decrease health by 10 when hit by an enemy
@@ -45,13 +45,8 @@ function move_player(offset)
 		return -- exit the function
 	end 
 	pos.x = pos.x + offset
-	go.set_position(pos)
-  
+	go.set_position(pos)  
 end
-
-
-
-
 
 function decrease_health(self,amount)
   self.health=self.health - amount

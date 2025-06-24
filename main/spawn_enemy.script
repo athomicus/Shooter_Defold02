@@ -17,13 +17,10 @@ function restart_spawn(self)
   msg.post("/Hud#bar_waiting_for_attack", "restart_timer") 
 end
 
-function spawn_enemy(self) --spawn enemy and add ID to list_of_enemies
-  
+function spawn_enemy(self)   
     if self.spawned_enemy_number >= max_spawn_number then
-       -- pprint(self.spawned_enemy_number)
-        pprint("max_spawn_number:"..max_spawn_number)
-        --timer.cancel(self.spawn_timer) -- Stop the timer if max number of enemies is reached
-        return
+      pprint("max_spawn_number:"..max_spawn_number)  --timer.cancel(self.spawn_timer) -- Stop the timer if max number of enemies is reached
+      return
     end
     self.spawned_enemy_number = self.spawned_enemy_number + 1
     local pos = vmath.vector3(math.random(30, 300), math.random(350, 550), 0)
@@ -35,83 +32,58 @@ function spawn_enemy(self) --spawn enemy and add ID to list_of_enemies
     end
 end
 
-
-
-
 function delete_enemy_by_id(enemy_id)
-    if enemy_id then
-      timer.delay(speed_attack, false, 
-        function()
-           if go.exists(enemy_id) then
-                  go.delete(enemy_id)            
-            end
-            T.remove_object_from_table(list_of_enemies, enemy_id)  
-            --
-        end)
-    end
-end
-
-function delete_enemy_by_id_without_delay(enemy_id)
-    if enemy_id then
-       
+    if enemy_id then     
       if go.exists(enemy_id) then
         go.delete(enemy_id)            
       end
-      T.remove_object_from_table(list_of_enemies, enemy_id)  
+      T.remove_object_from_table(list_of_enemies, enemy_id)      
     end
 end
+
 
 function enemy_attack_player(self,enemy_id)
-    
-    if enemy_id then     
-      go.cancel_animations(enemy_id)
-      local player_pos = go.get_position("Player#player")
-     -- go.animate(enemy_id,"position.x", go.PLAYBACK_ONCE_FORWARD, player_pos.x, go.EASING_INOUTSINE, speed_attack)
-     --go.animate(enemy_id,"position.y", go.PLAYBACK_ONCE_FORWARD, -42, go.EASING_INOUTSINE, speed_attack) 
-      delete_enemy_by_id(enemy_id)
-     
-    else
-        print("Error: Invalid enemy ID")
-    end
+  if enemy_id then     
+    go.cancel_animations(enemy_id)
+    local player_pos = go.get_position("Player#player")
+    --delete_enemy_by_id(enemy_id)
+  else
+    print("Error: Invalid enemy ID")
+  end
 end
 
-function count_elements(list)
-  return #list
-end
 
 function on_message(self, message_id, message, sender)
     if message_id == hash("order_attack") then 
+        
         enemy_kamikaze = true
         for i = #list_of_enemies, 1, -1 do 
           enemy_attack_player(self, list_of_enemies[i])
         end       
     end
     
-    if message_id==hash("delete_enemy") then
-      local path_sprite = message.enemy_id .. "#sprite"
-      delete_enemy_by_id_without_delay(message.enemy_id)  
+    if message_id==hash("delete_enemy") then -- msg przychodzi z enemy.script
+      --local path_sprite = message.enemy_id .. "#sprite"
+      delete_enemy_by_id(message.enemy_id)  
     end
 end
 
 
-function update(self, dt)
-     
-   
+function update(self, dt)        
     if T.is_empty(list_of_enemies) and enemy_kamikaze  then        
       enemy_kamikaze = false     
       restart_spawn(self)
     end
 
-    if enemy_kamikaze then
+    if enemy_kamikaze then --enemies chasing the player
       for i, enemy_id in ipairs(list_of_enemies) do
         if go.get_position(enemy_id) then
             local player_pos = go.get_position("Player#player")
             player_pos.y = -90    
-            local enemy_pos = go.get_position(enemy_id)  
-            
+            local enemy_pos = go.get_position(enemy_id)              
             local direction = vmath.normalize(player_pos - enemy_pos)
-            local speed = 1200 -- pixels per second, adjust as needed
-            local new_x = enemy_pos.x + direction.x * speed * dt + math.random(-5, 5)
+            local speed = 1000 -- pixels per second, adjust as needed
+            local new_x = enemy_pos.x + direction.x * speed * dt + math.random(-2, 2)
             local new_y = enemy_pos.y + direction.y * speed / 4 * dt
             local new_pos = vmath.vector3(new_x, new_y, enemy_pos.z)
             go.set_position(new_pos, enemy_id)

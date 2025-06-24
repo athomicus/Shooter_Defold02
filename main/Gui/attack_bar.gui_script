@@ -5,7 +5,7 @@ local enemy_wait_for_attack = true
 
 function restart_timer()
 	current_time = time_for_attack
-	enemy_wait_for_attack= true
+	enemy_wait_for_attack = true
 end
 
 function init(self)
@@ -13,14 +13,13 @@ function init(self)
 	update_timer_display(self)
 end
 
-function update_timer_display(self)	 
+function update_timer_display(self)	 --update bar
 	local progress_bar_node = gui.get_node("progress_bar")
 	if progress_bar_node then
 		local x_bar_size=130 -- getsize() zmienic
 		local fill_percentage = current_time / time_for_attack
 		local original_size = gui.get_size(progress_bar_node)
 		gui.set_size(progress_bar_node, vmath.vector3(x_bar_size * fill_percentage, original_size.y, original_size.z))
-		
 		-- Change color based on remaining time
 		if fill_percentage > 0.5 then
 			gui.set_color(progress_bar_node, vmath.vector4(0.0, 0.8, 0.2, 0.4)) -- Green
@@ -35,8 +34,6 @@ end
 function on_message(self, message_id, message)
 
    if message_id == hash("restart_timer") then
-    
-    --pprint("Received restart_timer message")
     restart_timer()
   end
 

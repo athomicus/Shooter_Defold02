@@ -73,6 +73,10 @@
         :html
       ]
       [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
         "/main/GUI_score_buttons.gui_script"
         :code
       ]
@@ -86,6 +90,10 @@
       ]
       [
         "/main/singleton.lua"
+        :code
+      ]
+      [
+        "/main/spawn_enemy.script"
         :code
       ]
       [
@@ -137,23 +145,15 @@
         :code
       ]
       [
-        "/game.project"
-        :cljfx-form-view
-      ]
-      [
-        "/input/game.input_binding"
-        :cljfx-form-view
-      ]
-      [
-        "/main/spawn_enemy.script"
-        :code
-      ]
-      [
-        "/main/main.collection"
+        "/main/Gui/attack_bar.gui"
         :scene
       ]
       [
         "/main/enemy.go"
+        :scene
+      ]
+      [
+        "/main/main.collection"
         :scene
       ]
     ]
