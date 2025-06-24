@@ -1,6 +1,6 @@
 Health = 100 -- Player's health
 rocket_counter = 0
-bullet_spawning_speed = 0.35 -- Speed at which bullets are spawned
+bullet_spawning_speed = 1.35 -- Speed at which bullets are spawned
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	--factory.create("#factory")  #

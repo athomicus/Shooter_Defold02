@@ -3,33 +3,19 @@ list_of_enemies = {}
 speed_attack = 2.2 --speed of attack
 enemy_kamikaze = false
 player_x = 0
-
+local T = require("main.tools")
 function init(self)
     self.spawned_enemy_number = 0
-    -- Initialize the enemy factory or other necessary components
-    self.enemy_factory = "#enemy_factory" -- Example factory reference
-    self.spawn_timer = timer.delay(0.1, true, function() spawn_enemy(self) end)     -- Store the timer handle
+    self.enemy_factory = "#enemy_factory" -- [1]
+    self.spawn_timer = timer.delay(0.1, true, function() spawn_enemy(self) end) --[2]
 end
+--[1] reference, [2] initiate the timer to spawn enemies 
 
-function restart_spawn(self) --   -- Reset the enemy spawn count and clear the list of enemies
-  self.spawned_enemy_number = 0 --spawnuj od nowa
- 
-  pprint("restart_spawn")
+function restart_spawn(self) 
+  self.spawned_enemy_number = 0
   max_spawn_number = max_spawn_number + 1  
-  --msg.post("Hud#myGUI", "restart_timer") 
   msg.post("/Hud#bar_waiting_for_attack", "restart_timer") 
 end
-
-function remove_object_from_table(tbl, object)
-    for i, v in ipairs(tbl) do
-        if v == object then
-            table.remove(tbl, i)
-            break
-        end
-    end
-end
-
-
 
 function spawn_enemy(self) --spawn enemy and add ID to list_of_enemies
   
@@ -49,9 +35,7 @@ function spawn_enemy(self) --spawn enemy and add ID to list_of_enemies
     end
 end
 
-local function is_empty(list)
-    return next(list) == nil -- Returns true if the list is empty, false otherwise
-end
+
 
 
 function delete_enemy_by_id(enemy_id)
@@ -61,7 +45,7 @@ function delete_enemy_by_id(enemy_id)
            if go.exists(enemy_id) then
                   go.delete(enemy_id)            
             end
-            remove_object_from_table(list_of_enemies, enemy_id)  
+            T.remove_object_from_table(list_of_enemies, enemy_id)  
             --
         end)
     end
@@ -73,7 +57,7 @@ function delete_enemy_by_id_without_delay(enemy_id)
       if go.exists(enemy_id) then
         go.delete(enemy_id)            
       end
-      remove_object_from_table(list_of_enemies, enemy_id)  
+      T.remove_object_from_table(list_of_enemies, enemy_id)  
     end
 end
 
@@ -113,7 +97,7 @@ end
 function update(self, dt)
      
    
-    if is_empty(list_of_enemies) and enemy_kamikaze  then        
+    if T.is_empty(list_of_enemies) and enemy_kamikaze  then        
       enemy_kamikaze = false     
       restart_spawn(self)
     end
