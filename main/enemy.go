@@ -27,7 +27,7 @@ embedded_components {
   "group: \"enemies\"\n"
   "mask: \"bullets\"\n"
   "mask: \"player\"\n"
-  "mask: \"catcher\"\n"
+  "mask: \"enemy_catcher\"\n"
   "embedded_collision_shape {\n"
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"

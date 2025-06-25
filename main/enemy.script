@@ -12,7 +12,18 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("trigger_response") and message.enter then
     local enemy_id = go.get_id()
     msg.post("#collisionobject", "disable")  --disable the collision node - cuzthere was multiscore
-		if message.other_group == hash("enemy_catcher") then
+	  --catch if enemy hitted in catcher we can check using other_id or other_group
+    --[[
+    if message.other_id == hash("/enemy_catcher") then
+      pprint("otherID!!!")
+    end
+    if message.other_group == hash("enemy_catcher") then
+      msg.post("#sprite", "disable")    
+      pprint("otherGroup!!!")
+    end
+    ]]--
+
+    if message.other_group == hash("enemy_catcher") then
       msg.post("#sprite", "disable")    
       msg.post("EnemySpawn#spawn_enemy", "delete_enemy",{enemy_id=enemy_id })
       pprint("Enemy caught by catcher: " .. enemy_id) -- Print the ID of the caught enemy

@@ -82,7 +82,7 @@ function update(self, dt)
             player_pos.y = -90    
             local enemy_pos = go.get_position(enemy_id)              
             local direction = vmath.normalize(player_pos - enemy_pos)
-            local speed = 1000 -- pixels per second, adjust as needed
+            local speed = 900 -- pixels per second, adjust as needed
             local new_x = enemy_pos.x + direction.x * speed * dt + math.random(-2, 2)
             local new_y = enemy_pos.y + direction.y * speed / 4 * dt
             local new_pos = vmath.vector3(new_x, new_y, enemy_pos.z)
