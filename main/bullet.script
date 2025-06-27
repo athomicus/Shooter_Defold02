@@ -1,5 +1,4 @@
-local s = require "main.singleton"    
- 
+
 
 function init(self)
 	-- This function is called when the script is initialized.

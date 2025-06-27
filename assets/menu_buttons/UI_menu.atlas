@@ -1,0 +1,16 @@
+images {
+  image: "/assets/menu_buttons/HoverPlay.png"
+}
+animations {
+  id: "Sound_OFF"
+  images {
+    image: "/assets/menu_buttons/SoundOff.png"
+  }
+}
+animations {
+  id: "Sound_ON"
+  images {
+    image: "/assets/menu_buttons/SoundOn.png"
+  }
+}
+extrude_borders: 2

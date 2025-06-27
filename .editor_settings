@@ -29,30 +29,6 @@
   :workflow {
     :recent-files [
       [
-        "/main/sprites.atlas"
-        :scene
-      ]
-      [
-        "/main/stars3line.go"
-        :scene
-      ]
-      [
-        "/main/move_background.script"
-        :code
-      ]
-      [
-        "/main/stars3_line.go"
-        :scene
-      ]
-      [
-        "/main/stars2_line.go"
-        :scene
-      ]
-      [
-        "/main/stars1_line.go"
-        :scene
-      ]
-      [
         "/main/score_buttons.gui_script"
         :code
       ]
@@ -63,10 +39,6 @@
       [
         "/assets/images/input/buttons.atlas"
         :scene
-      ]
-      [
-        "/main/bullet.script"
-        :code
       ]
       [
         "/README.md"
@@ -86,14 +58,6 @@
       ]
       [
         "/main/enemy.script"
-        :code
-      ]
-      [
-        "/main/singleton.lua"
-        :code
-      ]
-      [
-        "/main/spawn_enemy.script"
         :code
       ]
       [
@@ -137,23 +101,59 @@
         :scene
       ]
       [
-        "/main/player.script"
-        :code
-      ]
-      [
         "/main/Gui/health_bar.gui_script"
         :code
-      ]
-      [
-        "/main/Gui/attack_bar.gui"
-        :scene
       ]
       [
         "/main/enemy.go"
         :scene
       ]
       [
+        "/main/player.script"
+        :code
+      ]
+      [
+        "/main/spawn_enemy.script"
+        :code
+      ]
+      [
+        "/main/bullet.script"
+        :code
+      ]
+      [
+        "/main/singleton.lua"
+        :code
+      ]
+      [
         "/main/main.collection"
+        :scene
+      ]
+      [
+        "/main/Gui/player_health.gui"
+        :scene
+      ]
+      [
+        "/main/Gui/attack_bar.gui"
+        :scene
+      ]
+      [
+        "/assets/menu_buttons/menu_buttons.atlas"
+        :scene
+      ]
+      [
+        "/main/background.atlas"
+        :scene
+      ]
+      [
+        "/assets/menu_buttons/UI_menu.atlas"
+        :scene
+      ]
+      [
+        "/main/Gui/menu.collection"
+        :scene
+      ]
+      [
+        "/main/Gui/menu.gui"
         :scene
       ]
     ]
