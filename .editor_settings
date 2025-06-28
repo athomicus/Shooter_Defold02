@@ -29,10 +29,6 @@
   :workflow {
     :recent-files [
       [
-        "/main/score_buttons.gui_script"
-        :code
-      ]
-      [
         "/main/rocket_catcher.script"
         :code
       ]
@@ -125,10 +121,6 @@
         :code
       ]
       [
-        "/main/main.collection"
-        :scene
-      ]
-      [
         "/main/Gui/player_health.gui"
         :scene
       ]
@@ -149,11 +141,19 @@
         :scene
       ]
       [
+        "/main/Gui/menu.gui"
+        :scene
+      ]
+      [
         "/main/Gui/menu.collection"
         :scene
       ]
       [
-        "/main/Gui/menu.gui"
+        "/main/play_backround_music.script"
+        :code
+      ]
+      [
+        "/main/main.collection"
         :scene
       ]
     ]
