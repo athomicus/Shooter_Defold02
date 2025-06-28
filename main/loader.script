@@ -1,0 +1,18 @@
+function init(self)
+	msg.post("#menu_proxy", "load") -- after load proxy will send message back
+  msg.post(".", "acquire_input_focus") -- Acquire input focus for the loader script
+
+end
+
+
+function on_message(self, message_id, message, sender)
+  --pprint(message_id)
+ 
+  
+  if message_id == hash("proxy_loaded") then
+    print("Load done, starting game...")
+    msg.post(sender, "init") 
+    msg.post(sender, "enable") 
+
+  end
+end 

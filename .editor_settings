@@ -29,14 +29,6 @@
   :workflow {
     :recent-files [
       [
-        "/main/rocket_catcher.script"
-        :code
-      ]
-      [
-        "/assets/images/input/buttons.atlas"
-        :scene
-      ]
-      [
         "/README.md"
         :html
       ]
@@ -145,12 +137,20 @@
         :scene
       ]
       [
-        "/main/Gui/menu.collection"
+        "/main/play_backround_music.script"
+        :code
+      ]
+      [
+        "/main/loader.script"
+        :code
+      ]
+      [
+        "/main/level.collection"
         :scene
       ]
       [
-        "/main/play_backround_music.script"
-        :code
+        "/main/Gui/menu.collection"
+        :scene
       ]
       [
         "/main/main.collection"
