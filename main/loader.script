@@ -15,4 +15,9 @@ function on_message(self, message_id, message, sender)
     msg.post(sender, "enable") 
 
   end
+
+  if message_id == hash("toggle_sound") then
+    GameManager.is_sound = not GameManager.is_sound -- Toggle sound on/off
+    pprint(GameManager.is_sound)
+  end
 end 

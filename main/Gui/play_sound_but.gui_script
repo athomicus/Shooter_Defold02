@@ -1,0 +1,23 @@
+
+local GameManager = require("main.GameManager") 
+
+function init(self)
+	msg.post(".", "acquire_input_focus") -- 
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.pressed then  
+		local button_play = gui.get_node("PLAY")
+		local button_toglle_sound = gui.get_node("SOUND_ON_OFF")
+    --pprint(button_toglle_sound)
+   
+    if gui.pick_node(button_toglle_sound, action.x, action.y) then  
+      pprint("TOGGLE SOUND")
+      --msg.post("Player#player", "move_player", { offset = -10 })
+    end
+    if gui.pick_node(button_play, action.x, action.y) then  
+      pprint("PLAY")      
+    end
+
+  end
+end
