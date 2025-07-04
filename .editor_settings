@@ -29,6 +29,74 @@
   :workflow {
     :recent-files [
       [
+        "/main/score_buttons.gui_script"
+        :code
+      ]
+      [
+        "/main/rocket_catcher.script"
+        :code
+      ]
+      [
+        "/assets/images/input/buttons.atlas"
+        :scene
+      ]
+      [
+        "/main/bullet.script"
+        :code
+      ]
+      [
+        "/README.md"
+        :html
+      ]
+      [
+        "/main/GUI_score_buttons.gui_script"
+        :code
+      ]
+      [
+        "/main/bullet.go"
+        :scene
+      ]
+      [
+        "/main/enemy.script"
+        :code
+      ]
+      [
+        "/main/singleton.lua"
+        :code
+      ]
+      [
+        "/main/timer_manager.script"
+        :code
+      ]
+      [
+        "/main/progress_bar.gui"
+        :scene
+      ]
+      [
+        "/main/progress_bar_player_life.gui"
+        :scene
+      ]
+      [
+        "/main/player_health_bar.gui_script"
+        :code
+      ]
+      [
+        "/main/Gui/GUI_score_buttons.gui_script"
+        :code
+      ]
+      [
+        "/main/gui_health.gui_script"
+        :code
+      ]
+      [
+        "/main/progress_bar.gui_script"
+        :code
+      ]
+      [
+        "/main/Gui/progress_bar.gui"
+        :scene
+      ]
+      [
         "/main/myGUI.gui"
         :scene
       ]
@@ -37,8 +105,20 @@
         :scene
       ]
       [
+        "/main/player.script"
+        :code
+      ]
+      [
         "/main/Gui/health_bar.gui_script"
         :code
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
+        "/main/main.collection"
+        :scene
       ]
       [
         "/main/enemy.go"
@@ -49,111 +129,31 @@
         :code
       ]
       [
-        "/main/bullet.script"
-        :code
-      ]
-      [
-        "/main/singleton.lua"
-        :code
-      ]
-      [
-        "/assets/menu_buttons/menu_buttons.atlas"
-        :scene
-      ]
-      [
-        "/main/Gui/menu.collection"
-        :scene
-      ]
-      [
-        "/main/level.collection"
-        :scene
-      ]
-      [
-        "/main/Gui/player_health.gui"
-        :scene
-      ]
-      [
-        "/main/progress_bar.gui_script"
-        :code
-      ]
-      [
-        "/main/player.script"
-        :code
-      ]
-      [
-        "/main/Gui/menu_buttons_play_sound.gui_script"
-        :code
-      ]
-      [
-        "/main/Gui/buttons_score.gui"
-        :scene
-      ]
-      [
-        "/assets/menu_buttons/UI_menu.atlas"
-        :scene
-      ]
-      [
-        "/main/Gui/menu.gui"
-        :scene
-      ]
-      [
-        "/main/Gui/attack_bar.gui"
-        :scene
-      ]
-      [
-        "/main/Gui/player_health.gui_script"
-        :code
-      ]
-      [
-        "/main/GameManager.lua"
-        :code
-      ]
-      [
-        "/main/enemy.script"
-        :code
-      ]
-      [
-        "/main/Gui/buttons_score.gui_script"
-        :code
-      ]
-      [
-        "/main/tools.lua"
-        :code
-      ]
-      [
-        "/main/move_background.script"
-        :code
-      ]
-      [
-        "/main/play_backround_music.script"
-        :code
-      ]
-      [
-        "/main/background.atlas"
-        :scene
-      ]
-      [
-        "/main/sprites.atlas"
-        :scene
-      ]
-      [
-        "/assets/sounds_waves/bck_sound.sound"
+        "/input/game.input_binding"
         :cljfx-form-view
+      ]
+      [
+        "/main/collections/loader.script"
+        :code
+      ]
+      [
+        "/main/menu/menu_script.gui_script"
+        :code
       ]
       [
         "/main/collections/level.collection"
         :scene
       ]
       [
-        "/main/loader.script"
-        :code
-      ]
-      [
-        "/main/menu.collection"
+        "/main/collections/main.collection"
         :scene
       ]
       [
-        "/main/main.collection"
+        "/main/collections/menu.collection"
+        :scene
+      ]
+      [
+        "/main/menu/menu.gui"
         :scene
       ]
     ]

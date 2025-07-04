@@ -1,3 +1,4 @@
+GameManager = require "main.GameManager"
 function init(self)
 	msg.post("#menu_proxy", "load") -- after load proxy will send message back
   msg.post(".", "acquire_input_focus") -- Acquire input focus for the loader script
