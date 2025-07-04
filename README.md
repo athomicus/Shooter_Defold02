@@ -1,2 +1,2 @@
 Shooter defold  - architecture
-<img src="doc.svg" width="140%" height="140%">
+<img src="collection.png" width="110%" height="110%">
