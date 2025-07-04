@@ -1,4 +1,4 @@
-script: "/main/Gui/player_health.gui_script"
+script: "/main/game_assets/player_health.gui_script"
 fonts {
   name: "always_on_top"
   font: "/builtins/fonts/debug/always_on_top.font"

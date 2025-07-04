@@ -1,6 +1,4 @@
 
--- Initialize the score variable to keep track of the player's score
-local score = 0
 
 -- Timer variables
 local max_time = 3.0  -- Maximum time in seconds
@@ -16,14 +14,14 @@ end
 function on_message(self, message_id, message, sender)
 
   if message_id == hash("score_up") then
-  score = score + 5
+	GameManager.score = GameManager.score + 5
   end
 	
   --if message_id == hash("restart_timer") then
    -- restart_timer()
   --end
 	-- Update the GUI text node named "score" to display the updated score
-	gui.set_text(gui.get_node("score"), score)
+	gui.set_text(gui.get_node("score"),GameManager.score)
 end
 
 -- sterowanie

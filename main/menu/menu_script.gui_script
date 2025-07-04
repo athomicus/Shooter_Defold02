@@ -13,11 +13,27 @@ function on_input(self, action_id, action)
    
     if gui.pick_node(button_toglle_sound, action.x, action.y) then  
       pprint("TOGGLE SOUND")
-      --msg.post("Player#player", "move_player", { offset = -10 })
+      GameManager.is_sound = not GameManager.is_sound -- Toggle sound on/off
+      pprint(GameManager.is_sound)
+
     end
+    change_texture_sound(self, button_toglle_sound)
+    
+    
     if gui.pick_node(button_play, action.x, action.y) then  
-      pprint("PLAY")      
+      msg.post("loader", "start_game")   
     end
 
+  end
+end
+
+
+function change_texture_sound(self, node)
+  if GameManager.is_sound then
+    --gui.set_texture(node, "UI_menu") -- ustaw z ktorego Atlasu ma byc tekstura
+    gui.play_flipbook(node, "Sound_ON")
+  else
+    gui.play_flipbook(node, "Sound_OFF")
+    --gui.set_texture(node,"UI_menu")
   end
 end

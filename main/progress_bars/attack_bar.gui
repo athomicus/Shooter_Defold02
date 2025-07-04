@@ -1,4 +1,4 @@
-script: "/main/Gui/attack_bar.gui_script"
+script: "/main/progress_bars/attack_bar.gui_script"
 fonts {
   name: "always_on_top"
   font: "/builtins/fonts/debug/always_on_top.font"

@@ -1,7 +1,8 @@
 
 local GameManager = {
 	current_level = "level",
-	is_sound = true
+	is_sound = true,
+	score = 0
 	
 }
 

@@ -1,6 +1,6 @@
 components {
   id: "bullet"
-  component: "/main/bullet.script"
+  component: "/main/game_assets/bullet.script"
 }
 embedded_components {
   id: "sprite"
@@ -9,7 +9,7 @@ embedded_components {
   "material: \"/builtins/materials/sprite.material\"\n"
   "textures {\n"
   "  sampler: \"texture_sampler\"\n"
-  "  texture: \"/main/sprites.atlas\"\n"
+  "  texture: \"/main/game_assets/sprites.atlas\"\n"
   "}\n"
   ""
 }

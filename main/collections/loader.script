@@ -10,14 +10,22 @@ function on_message(self, message_id, message, sender)
  
   
   if message_id == hash("proxy_loaded") then
-    print("Load done, starting game...")
+    print("Load menu done, "...)
     msg.post(sender, "init") 
     msg.post(sender, "enable") 
-
   end
 
   if message_id == hash("toggle_sound") then
     GameManager.is_sound = not GameManager.is_sound -- Toggle sound on/off
     pprint(GameManager.is_sound)
   end
+
+  
+  if message_id == hash("start_game") then
+    print("Load done, starting game...")
+   -- msg.post(sender, "init") 
+    --msg.post(sender, "enable") 
+  end
+
+
 end 

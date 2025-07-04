@@ -1,7 +1,7 @@
-script: "/main/Gui/play_sound_but.gui_script"
+script: "/main/menu/menu_script.gui_script"
 textures {
   name: "UI_menu"
-  texture: "/assets/menu_buttons/UI_menu.atlas"
+  texture: "/main/menu/UI_menu.atlas"
 }
 nodes {
   position {

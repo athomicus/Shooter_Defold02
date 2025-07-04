@@ -1,111 +1,111 @@
 name: "level"
 instances {
   id: "stars1_line"
-  prototype: "/main/stars1_line.go"
+  prototype: "/main/game_assets/background/stars1_line.go"
   position {
     y: 120.0
   }
 }
 instances {
   id: "stars1_line1"
-  prototype: "/main/stars1_line.go"
+  prototype: "/main/game_assets/background/stars1_line.go"
   position {
     y: 221.0
   }
 }
 instances {
   id: "stars1_line2"
-  prototype: "/main/stars1_line.go"
+  prototype: "/main/game_assets/background/stars1_line.go"
   position {
     y: 441.0
   }
 }
 instances {
   id: "stars3line"
-  prototype: "/main/stars3_line.go"
+  prototype: "/main/game_assets/background/stars3_line.go"
 }
 instances {
   id: "stars3line1"
-  prototype: "/main/stars3_line.go"
+  prototype: "/main/game_assets/background/stars3_line.go"
   position {
     y: 225.0
   }
 }
 instances {
   id: "stars3line2"
-  prototype: "/main/stars3_line.go"
+  prototype: "/main/game_assets/background/stars3_line.go"
   position {
     y: 452.0
   }
 }
 instances {
   id: "stars1_line3"
-  prototype: "/main/stars1_line.go"
+  prototype: "/main/game_assets/background/stars1_line.go"
 }
 instances {
   id: "stars1_line4"
-  prototype: "/main/stars1_line.go"
+  prototype: "/main/game_assets/background/stars1_line.go"
   position {
     y: 221.0
   }
 }
 instances {
   id: "stars1_line5"
-  prototype: "/main/stars1_line.go"
+  prototype: "/main/game_assets/background/stars1_line.go"
   position {
     y: 441.0
   }
 }
 instances {
   id: "stars1_line6"
-  prototype: "/main/stars1_line.go"
+  prototype: "/main/game_assets/background/stars1_line.go"
 }
 instances {
   id: "stars1_line7"
-  prototype: "/main/stars1_line.go"
+  prototype: "/main/game_assets/background/stars1_line.go"
   position {
     y: 221.0
   }
 }
 instances {
   id: "stars1_line8"
-  prototype: "/main/stars1_line.go"
+  prototype: "/main/game_assets/background/stars1_line.go"
   position {
     y: 441.0
   }
 }
 instances {
   id: "stars3line3"
-  prototype: "/main/stars3_line.go"
+  prototype: "/main/game_assets/background/stars3_line.go"
 }
 instances {
   id: "stars3line4"
-  prototype: "/main/stars3_line.go"
+  prototype: "/main/game_assets/background/stars3_line.go"
   position {
     y: 225.0
   }
 }
 instances {
   id: "stars3line5"
-  prototype: "/main/stars3_line.go"
+  prototype: "/main/game_assets/background/stars3_line.go"
   position {
     y: 452.0
   }
 }
 instances {
   id: "stars3line6"
-  prototype: "/main/stars3_line.go"
+  prototype: "/main/game_assets/background/stars3_line.go"
 }
 instances {
   id: "stars3line7"
-  prototype: "/main/stars3_line.go"
+  prototype: "/main/game_assets/background/stars3_line.go"
   position {
     y: 225.0
   }
 }
 instances {
   id: "stars3line8"
-  prototype: "/main/stars3_line.go"
+  prototype: "/main/game_assets/background/stars3_line.go"
   position {
     y: 452.0
   }
@@ -115,11 +115,11 @@ embedded_instances {
   id: "Player"
   data: "components {\n"
   "  id: \"player\"\n"
-  "  component: \"/main/player.script\"\n"
+  "  component: \"/main/game_assets/player.script\"\n"
   "}\n"
   "components {\n"
   "  id: \"shot\"\n"
-  "  component: \"/main/shot.sound\"\n"
+  "  component: \"/assets/sounds/shot.sound\"\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"sprite\"\n"
@@ -128,14 +128,14 @@ embedded_instances {
   "material: \\\"/builtins/materials/sprite.material\\\"\\n"
   "textures {\\n"
   "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/main/sprites.atlas\\\"\\n"
+  "  texture: \\\"/main/game_assets/sprites.atlas\\\"\\n"
   "}\\n"
   "\"\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"factory\"\n"
   "  type: \"factory\"\n"
-  "  data: \"prototype: \\\"/main/bullet.go\\\"\\n"
+  "  data: \"prototype: \\\"/main/game_assets/bullet.go\\\"\\n"
   "\"\n"
   "}\n"
   "embedded_components {\n"
@@ -173,11 +173,11 @@ embedded_instances {
   id: "bgr_music"
   data: "components {\n"
   "  id: \"bck_sound\"\n"
-  "  component: \"/main/bck_sound.sound\"\n"
+  "  component: \"/assets/sounds/bck_sound.sound\"\n"
   "}\n"
   "components {\n"
   "  id: \"play_backround_music\"\n"
-  "  component: \"/main/play_backround_music.script\"\n"
+  "  component: \"/main/game_assets/background/play_backround_music.script\"\n"
   "}\n"
   ""
 }
@@ -189,7 +189,7 @@ embedded_instances {
   "}\n"
   "components {\n"
   "  id: \"bar_waiting_for_attack\"\n"
-  "  component: \"/main/Gui/attack_bar.gui\"\n"
+  "  component: \"/main/progress_bars/attack_bar.gui\"\n"
   "}\n"
   "components {\n"
   "  id: \"progress_bar_player_life\"\n"
@@ -207,7 +207,7 @@ embedded_instances {
   children: "StarsB2"
   data: "components {\n"
   "  id: \"move_background\"\n"
-  "  component: \"/main/move_background.script\"\n"
+  "  component: \"/main/game_assets/background/move_background.script\"\n"
   "}\n"
   ""
 }
@@ -279,12 +279,12 @@ embedded_instances {
   id: "EnemySpawn"
   data: "components {\n"
   "  id: \"spawn_enemy\"\n"
-  "  component: \"/main/spawn_enemy.script\"\n"
+  "  component: \"/main/game_assets/spawn_enemy.script\"\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"enemy_factory\"\n"
   "  type: \"factory\"\n"
-  "  data: \"prototype: \\\"/main/enemy.go\\\"\\n"
+  "  data: \"prototype: \\\"/main/game_assets/enemy.go\\\"\\n"
   "\"\n"
   "}\n"
   ""

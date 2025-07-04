@@ -9,7 +9,7 @@ embedded_components {
   "}\n"
   "textures {\n"
   "  sampler: \"texture_sampler\"\n"
-  "  texture: \"/main/background.atlas\"\n"
+  "  texture: \"/main/game_assets/background/background.atlas\"\n"
   "}\n"
   ""
   position {
@@ -27,7 +27,7 @@ embedded_components {
   "}\n"
   "textures {\n"
   "  sampler: \"texture_sampler\"\n"
-  "  texture: \"/main/background.atlas\"\n"
+  "  texture: \"/main/game_assets/background/background.atlas\"\n"
   "}\n"
   ""
   position {
@@ -45,7 +45,7 @@ embedded_components {
   "}\n"
   "textures {\n"
   "  sampler: \"texture_sampler\"\n"
-  "  texture: \"/main/background.atlas\"\n"
+  "  texture: \"/main/game_assets/background/background.atlas\"\n"
   "}\n"
   ""
   position {

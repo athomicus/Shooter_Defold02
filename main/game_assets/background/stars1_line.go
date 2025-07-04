@@ -1,7 +1,7 @@
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "default_animation: \"background_2\"\n"
+  data: "default_animation: \"background_1\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "size {\n"
   "  x: 256.0\n"
@@ -9,18 +9,18 @@ embedded_components {
   "}\n"
   "textures {\n"
   "  sampler: \"texture_sampler\"\n"
-  "  texture: \"/main/background.atlas\"\n"
+  "  texture: \"/main/game_assets/background/background.atlas\"\n"
   "}\n"
   ""
   position {
-    x: 239.0
-    y: -17.0
+    x: 235.0
+    y: -10.0
   }
 }
 embedded_components {
-  id: "sprite2"
+  id: "sprite1"
   type: "sprite"
-  data: "default_animation: \"background_2\"\n"
+  data: "default_animation: \"background_1\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "size {\n"
   "  x: 256.0\n"
@@ -28,18 +28,18 @@ embedded_components {
   "}\n"
   "textures {\n"
   "  sampler: \"texture_sampler\"\n"
-  "  texture: \"/main/background.atlas\"\n"
+  "  texture: \"/main/game_assets/background/background.atlas\"\n"
   "}\n"
   ""
   position {
-    x: -18.0
-    y: -17.0
+    x: -20.0
+    y: -10.0
   }
 }
 embedded_components {
   id: "sprite3"
   type: "sprite"
-  data: "default_animation: \"background_2\"\n"
+  data: "default_animation: \"background_1\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "size {\n"
   "  x: 256.0\n"
@@ -47,11 +47,11 @@ embedded_components {
   "}\n"
   "textures {\n"
   "  sampler: \"texture_sampler\"\n"
-  "  texture: \"/main/background.atlas\"\n"
+  "  texture: \"/main/game_assets/background/background.atlas\"\n"
   "}\n"
   ""
   position {
-    x: 478.0
-    y: -17.0
+    x: 482.0
+    y: -10.0
   }
 }

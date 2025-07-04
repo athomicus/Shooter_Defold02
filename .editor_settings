@@ -29,38 +29,6 @@
   :workflow {
     :recent-files [
       [
-        "/main/enemy.script"
-        :code
-      ]
-      [
-        "/main/timer_manager.script"
-        :code
-      ]
-      [
-        "/main/progress_bar.gui"
-        :scene
-      ]
-      [
-        "/main/progress_bar_player_life.gui"
-        :scene
-      ]
-      [
-        "/main/player_health_bar.gui_script"
-        :code
-      ]
-      [
-        "/main/Gui/GUI_score_buttons.gui_script"
-        :code
-      ]
-      [
-        "/main/gui_health.gui_script"
-        :code
-      ]
-      [
-        "/main/Gui/progress_bar.gui"
-        :scene
-      ]
-      [
         "/main/myGUI.gui"
         :scene
       ]
@@ -89,19 +57,7 @@
         :code
       ]
       [
-        "/main/Gui/attack_bar.gui"
-        :scene
-      ]
-      [
         "/assets/menu_buttons/menu_buttons.atlas"
-        :scene
-      ]
-      [
-        "/main/background.atlas"
-        :scene
-      ]
-      [
-        "/assets/menu_buttons/UI_menu.atlas"
         :scene
       ]
       [
@@ -113,15 +69,7 @@
         :scene
       ]
       [
-        "/main/Gui/buttons_score.gui"
-        :scene
-      ]
-      [
         "/main/Gui/player_health.gui"
-        :scene
-      ]
-      [
-        "/main/menu.collection"
         :scene
       ]
       [
@@ -133,16 +81,72 @@
         :code
       ]
       [
-        "/main/play_backround_music.script"
+        "/main/Gui/menu_buttons_play_sound.gui_script"
         :code
       ]
       [
-        "/main/Gui/menu_buttons_play_sound.gui_script"
+        "/main/Gui/buttons_score.gui"
+        :scene
+      ]
+      [
+        "/assets/menu_buttons/UI_menu.atlas"
+        :scene
+      ]
+      [
+        "/main/Gui/menu.gui"
+        :scene
+      ]
+      [
+        "/main/Gui/attack_bar.gui"
+        :scene
+      ]
+      [
+        "/main/Gui/player_health.gui_script"
         :code
       ]
       [
         "/main/GameManager.lua"
         :code
+      ]
+      [
+        "/main/enemy.script"
+        :code
+      ]
+      [
+        "/main/Gui/buttons_score.gui_script"
+        :code
+      ]
+      [
+        "/main/tools.lua"
+        :code
+      ]
+      [
+        "/main/move_background.script"
+        :code
+      ]
+      [
+        "/main/play_backround_music.script"
+        :code
+      ]
+      [
+        "/main/background.atlas"
+        :scene
+      ]
+      [
+        "/main/sprites.atlas"
+        :scene
+      ]
+      [
+        "/assets/sounds_waves/bck_sound.sound"
+        :cljfx-form-view
+      ]
+      [
+        "/main/collections/level.collection"
+        :scene
+      ]
+      [
+        "/main/menu.collection"
+        :scene
       ]
       [
         "/main/main.collection"
@@ -151,10 +155,6 @@
       [
         "/main/loader.script"
         :code
-      ]
-      [
-        "/main/Gui/menu.gui"
-        :scene
       ]
     ]
   }
