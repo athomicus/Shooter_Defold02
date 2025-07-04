@@ -5,12 +5,25 @@ function init(self)
 end
 
 
+local function switch_to_scene(new_scene)
+  if new_scene == 'level' then
+    GameManager.current_level = 'level'
+    msg.post("#menu_proxy", "unload")  
+    msg.post("#level1_proxy", "load")  
+  elseif new_scene == 'menu' then
+    GameManager.current_level = 'menu'
+    msg.post("#level1_proxy", "unload")  
+    msg.post("#menu_proxy", "load")      
+  end
+end
+
+
 function on_message(self, message_id, message, sender)
   --pprint(message_id)
  
   
   if message_id == hash("proxy_loaded") then
-    print("Load menu done, "...)
+    print("Load menu done, ")
     msg.post(sender, "init") 
     msg.post(sender, "enable") 
   end
@@ -23,8 +36,7 @@ function on_message(self, message_id, message, sender)
   
   if message_id == hash("start_game") then
     print("Load done, starting game...")
-   -- msg.post(sender, "init") 
-    --msg.post(sender, "enable") 
+    switch_to_scene('level')
   end
 
 

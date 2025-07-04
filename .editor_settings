@@ -145,16 +145,16 @@
         :scene
       ]
       [
+        "/main/loader.script"
+        :code
+      ]
+      [
         "/main/menu.collection"
         :scene
       ]
       [
         "/main/main.collection"
         :scene
-      ]
-      [
-        "/main/loader.script"
-        :code
       ]
     ]
   }
