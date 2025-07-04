@@ -1,2 +1,2 @@
 Shooter defold  - architecture
-<img src="collection.png" width="110%" height="110%">
+<img src="collections.png" width="110%" height="110%">
