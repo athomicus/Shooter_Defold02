@@ -1,4 +1,4 @@
 Shooter defold  - architecture
 
 Collection proxy:
-<img src="collections.png" width="110%" height="110%">
+<img src="collections.drawio.png" width="105%" height="105%">
