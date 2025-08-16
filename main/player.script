@@ -1,4 +1,4 @@
-Health = 100 -- Player's health
+Health = 135 -- Player's health
 rocket_counter = 0
 bullet_spawning_speed = 1.35 -- Speed at which bullets are spawned
 function init(self)
@@ -53,6 +53,7 @@ function decrease_health(self,amount)
   msg.post("Hud#progress_bar_player_life","player_health", { health = self.health }) 
   if self.health<= 0 then
     self.health= 0
+    print("END OF LIFE for player")
     --msg.post(".", "release_input_focus") -- Release input focus when health reaches zero
     --msg.post("Hud#myGUI", "game_over") -- Notify the HUD GUI about game over
   end

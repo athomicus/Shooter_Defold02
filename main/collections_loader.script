@@ -1,0 +1,4 @@
+function init(self)
+	local load_level = 	2
+	msg.post("#level"
+end
