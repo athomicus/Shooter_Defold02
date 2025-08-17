@@ -1,4 +1,4 @@
-name: "main"
+name: "level"
 instances {
   id: "stars1_line"
   prototype: "/main/stars1_line.go"

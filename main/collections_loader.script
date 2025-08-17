@@ -1,4 +1,27 @@
-function init(self)
-	local load_level = 	2
-	msg.post("#level"
+function init(self)	
+print("Loader is alive!", go.get_id())
+	--msg.post(".", "load") --send message to himself
+  --msg.post("#menu", "load") -- Load the level1 collection proxy
+  msg.post("#menu", "load") -- Load the level1 collection proxy
+
+ --msg.post("#game_over", "unload")
+ msg.post(".", "acquire_input_focus")
+  
+	-- Set a Script Property with the initial GameState Status
+	--self.state = "MAIN_MENU"			
+end
+
+
+function on_message(self, message_id, message, sender)
+   --pprint(message_id)
+   if message_id == hash("proxy_loaded") then
+      print ("TAK! To ta wiadomość!") 
+      msg.post(sender, "enable") --aktywuj kolekcje
+   end
+  if message_id == hash("start_game") then
+   msg.post("#menu", "unload")      -- Odładowanie kolekcji menu
+   msg.post("#level", "load")       -- Załaduj kolekcję level1
+  -- msg.post(sender, "enable") --aktywuj kolekcje
+   end
+    
 end

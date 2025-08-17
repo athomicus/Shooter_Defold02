@@ -29,19 +29,7 @@
   :workflow {
     :recent-files [
       [
-        "/assets/menu_buttons/menu_buttons.atlas"
-        :scene
-      ]
-      [
-        "/main/Gui/menu.collection"
-        :scene
-      ]
-      [
         "/main/level.collection"
-        :scene
-      ]
-      [
-        "/main/Gui/player_health.gui"
         :scene
       ]
       [
@@ -57,16 +45,8 @@
         :code
       ]
       [
-        "/main/Gui/buttons_score.gui"
-        :scene
-      ]
-      [
         "/assets/menu_buttons/UI_menu.atlas"
         :scene
-      ]
-      [
-        "/main/Gui/buttons_score.gui_script"
-        :code
       ]
       [
         "/main/tools.lua"
@@ -74,10 +54,6 @@
       ]
       [
         "/main/sprites.atlas"
-        :scene
-      ]
-      [
-        "/main/Gui/attack_bar.gui"
         :scene
       ]
       [
@@ -125,28 +101,52 @@
         :scene
       ]
       [
-        "/game.project"
-        :cljfx-form-view
-      ]
-      [
         "/main/bullet.script"
         :code
-      ]
-      [
-        "/main/bullet.go"
-        :scene
       ]
       [
         "/main/Game_Over.collection"
         :scene
       ]
       [
-        "/main/Gui/menu.gui"
+        "/main/collections_loader.script"
+        :code
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
+        "/main/bullet.go"
         :scene
       ]
       [
-        "/main/collections_loader.script"
+        "/main/level1.collection"
+        :scene
+      ]
+      [
+        "/main/Gui/buttons_score.gui_script"
         :code
+      ]
+      [
+        "/main/Gui/game_menu.gui_script"
+        :code
+      ]
+      [
+        "/main/Gui/attack_bar.gui"
+        :scene
+      ]
+      [
+        "/main/Gui/player_health.gui"
+        :scene
+      ]
+      [
+        "/main/Gui/buttons_score.gui"
+        :scene
+      ]
+      [
+        "/main/Gui/menu.gui"
+        :scene
       ]
       [
         "/main/menu.collection"
