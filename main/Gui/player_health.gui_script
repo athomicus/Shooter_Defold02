@@ -21,7 +21,7 @@ function update_health_bar(self)
 		end
 	end
 end
-
+--player health przekazywany jest przez message
 function on_message(self, message_id, message, sender)
   if message_id == hash("player_health") then
         player_health = message.health

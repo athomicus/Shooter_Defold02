@@ -1,10 +1,11 @@
 function init(self)	
 print("Loader is alive!", go.get_id())
-	--msg.post(".", "load") --send message to himself
-  --msg.post("#menu", "load") -- Load the level1 collection proxy
-  msg.post("#menu", "load") -- Load the level1 collection proxy
+	msg.post("#menu", "load") 
+  self.menu_loaded = true 
+  
+  self.game_over_loaded = false 
+  self.level_loaded = false 
 
- --msg.post("#game_over", "unload")
  msg.post(".", "acquire_input_focus")
   
 	-- Set a Script Property with the initial GameState Status
@@ -14,14 +15,51 @@ end
 
 function on_message(self, message_id, message, sender)
    --pprint(message_id)
+ 
    if message_id == hash("proxy_loaded") then
-      print ("TAK! To ta wiadomość!") 
-      msg.post(sender, "enable") --aktywuj kolekcje
+      pprint ("TAK! To ta wiadomość!"..sender) 
+      msg.post(sender, "enable")
+
    end
-  if message_id == hash("start_game") then
-   msg.post("#menu", "unload")      -- Odładowanie kolekcji menu
-   msg.post("#level", "load")       -- Załaduj kolekcję level1
-  -- msg.post(sender, "enable") --aktywuj kolekcje
-   end
-    
+  
+--START GAME
+   if message_id == hash("start_game") then   
+     unload_loaded_collection(self)     
+     self.level_loaded = true
+     msg.post("#level", "load") 
+    end
+  
+   --GAME OVER
+   if message_id == hash("game_over") then
+      unload_loaded_collection(self)
+      self.game_over_loaded = true
+      msg.post("#game_over", "load") 
+    end
+
+
+    --MENU GAME
+    if message_id == hash("menu_game") then
+      unload_loaded_collection(self)
+      self.menu_loaded = true
+      msg.post("#menu", "load") 
+    end
+end
+
+
+-- Unload all loaded collections
+function unload_loaded_collection(self)
+  if self.game_over_loaded  then
+        msg.post("#game_over", "unload") 
+        self.game_over_loaded = false 
+     end
+      
+      if self.menu_loaded then
+        msg.post("#menu", "unload") 
+        self.menu_loaded = false
+      end
+      if self.level_loaded then
+        msg.post("#level", "unload") 
+        self.level_loaded = false
+      end
+
 end

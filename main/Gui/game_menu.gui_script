@@ -12,8 +12,8 @@ function on_input(self, action_id, action)
     local button_sound = gui.get_node("SOUND_ON_OFF")
       
 		if gui.pick_node(button_play, action.x, action.y) then
-      print("PLAY button pressed")
-     msg.post("main:/collections_loader#collections_loader", "start_game")      -- Unload the menu collection
+     print("PLAY button pressed")
+     msg.post("main:/collections_loader#collections_loader", "start_game")   
 		end
     if gui.pick_node(button_sound, action.x, action.y) then
       print("SOUND button pressed")

@@ -29,34 +29,6 @@
   :workflow {
     :recent-files [
       [
-        "/main/level.collection"
-        :scene
-      ]
-      [
-        "/main/progress_bar.gui_script"
-        :code
-      ]
-      [
-        "/main/player.script"
-        :code
-      ]
-      [
-        "/main/Gui/menu_buttons_play_sound.gui_script"
-        :code
-      ]
-      [
-        "/assets/menu_buttons/UI_menu.atlas"
-        :scene
-      ]
-      [
-        "/main/tools.lua"
-        :code
-      ]
-      [
-        "/main/sprites.atlas"
-        :scene
-      ]
-      [
         "/main/Gui/player_health.gui_script"
         :code
       ]
@@ -141,19 +113,47 @@
         :scene
       ]
       [
+        "/main/menu.collection"
+        :scene
+      ]
+      [
+        "/assets/images/input/buttons.atlas"
+        :scene
+      ]
+      [
+        "/main/sprites.atlas"
+        :scene
+      ]
+      [
+        "/assets/menu_buttons/UI_menu.atlas"
+        :scene
+      ]
+      [
         "/main/Gui/buttons_score.gui"
         :scene
+      ]
+      [
+        "/main/Gui/play_button.gui_script"
+        :code
       ]
       [
         "/main/Gui/menu.gui"
         :scene
       ]
       [
-        "/main/menu.collection"
-        :scene
+        "/main/player.script"
+        :code
       ]
       [
         "/main/main.collection"
+        :scene
+      ]
+      [
+        "/main/Gui/game_over.gui"
+        :scene
+      ]
+      [
+        "/main/game_over.collection"
         :scene
       ]
     ]

@@ -1,4 +1,4 @@
-Health = 100 -- Player's health
+Health = 20 -- Player's health
 rocket_counter = 0
 bullet_spawning_speed = 1.35 -- Speed at which bullets are spawned
 function init(self)
@@ -27,7 +27,7 @@ function on_message(self, message_id, message, sender)
         -- Call the move_player function with the offset from the message
        move_player(message.offset)
     end
-
+--ZDERZENIE Z PRZECIWNIKIEM
     if message_id == hash("trigger_response") and message.enter then
       --local enemy_id = go.get_id() -- Get the ID of the current game object
         if message.other_group == hash("enemies") then
@@ -52,8 +52,11 @@ function decrease_health(self,amount)
   self.health=self.health - amount
   msg.post("Hud#progress_bar_player_life","player_health", { health = self.health }) 
   if self.health<= 0 then
-    self.health= 0
+    
+    self.health = 0
     print("END OF LIFE for player")
+     msg.post("main:/collections_loader#collections_loader", "game_over") 
+    
     --msg.post(".", "release_input_focus") -- Release input focus when health reaches zero
     --msg.post("Hud#myGUI", "game_over") -- Notify the HUD GUI about game over
   end

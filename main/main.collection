@@ -18,5 +18,11 @@ embedded_instances {
   "  data: \"collection: \\\"/main/level1.collection\\\"\\n"
   "\"\n"
   "}\n"
+  "embedded_components {\n"
+  "  id: \"game_over\"\n"
+  "  type: \"collectionproxy\"\n"
+  "  data: \"collection: \\\"/main/game_over.collection\\\"\\n"
+  "\"\n"
+  "}\n"
   ""
 }
