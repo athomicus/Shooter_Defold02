@@ -125,20 +125,12 @@
         :scene
       ]
       [
-        "/assets/menu_buttons/UI_menu.atlas"
-        :scene
-      ]
-      [
         "/main/Gui/buttons_score.gui"
         :scene
       ]
       [
         "/main/Gui/play_button.gui_script"
         :code
-      ]
-      [
-        "/main/Gui/menu.gui"
-        :scene
       ]
       [
         "/main/player.script"
@@ -154,6 +146,14 @@
       ]
       [
         "/main/game_over.collection"
+        :scene
+      ]
+      [
+        "/main/Gui/menu.gui"
+        :scene
+      ]
+      [
+        "/assets/menu_buttons/UI_menu.atlas"
         :scene
       ]
     ]
